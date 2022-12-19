@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import MiddleNewsList from '../components/middleNewsList';
+import MiddleNewsList from '../components/MiddleNewsList';
 import NavBar from '../components/NavBar';
 import { client } from '../lib/client';
 
