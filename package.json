@@ -5,13 +5,14 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "deploy":"next dev -p 80",
+    "deploy": "next dev -p 80",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.14",
     "@chakra-ui/react": "^2.4.4",
+    "@google-cloud/compute": "^3.7.0",
     "@sanity/client": "^3.4.1",
     "@sanity/image-url": "^1.0.1",
     "bootstrap": "^5.2.2",

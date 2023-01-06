@@ -14,8 +14,8 @@ import { AiOutlineCloudUpload } from "react-icons/ai";
 import Header from "../../components/Header";
 import { client, urlFor } from "../../lib/client";
 
-const NewsDetails = ({ newsArticle, news }) => {
-  console.log(newsArticle);
+const NewsDetails = ({ newsArticle, news ,addvertisement}) => {
+  console.log(addvertisement);
   return (
     <>
       <Container maxW={"container.xl"} minH={"100vh"} p="2" textAlign={"center"}>
@@ -66,12 +66,24 @@ const NewsDetails = ({ newsArticle, news }) => {
           <Text lineHeight={"190%"} textAlign={"center"}>
             {newsArticle.para1}
           </Text>
+          <Image
+            src={urlFor(addvertisement[0].image)}
+            h={["40", "400"]}
+          />
           <Text lineHeight={"190%"} textAlign={"center"}>
             {newsArticle.para2}
           </Text>
+          <Image
+            src={urlFor(addvertisement[1].image)}
+            h={["40", "400"]}
+          />
           <Text lineHeight={"190%"} textAlign={"center"}>
             {newsArticle.para3}
           </Text>
+          <Image
+            src={urlFor(addvertisement[2].image)}
+            h={["40", "400"]}
+          />
           <Text lineHeight={"190%"} textAlign={"center"}>
             {newsArticle.para4}
           </Text>
@@ -103,8 +115,11 @@ export const getStaticProps = async ({ params: { slug } }) => {
   const newsQuery = `*[_type=="news"]`;
   const news = await client.fetch(newsQuery);
 
+  const addvertisementQuery = `*[_type=="advertisement"]`;
+  const addvertisement = await client.fetch(addvertisementQuery);
+
   return {
-    props: { newsArticle, news },
+    props: { newsArticle, news ,addvertisement},
   };
 };
 export default NewsDetails;
