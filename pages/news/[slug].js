@@ -11,13 +11,16 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { AiOutlineCloudUpload } from "react-icons/ai";
+import Footer from "../../components/Footer";
 import Header from "../../components/Header";
+import NavBar from "../../components/NavBar";
 import { client, urlFor } from "../../lib/client";
 
-const NewsDetails = ({ newsArticle, news ,addvertisement}) => {
-  console.log(addvertisement);
+const NewsDetails = ({ newsArticle, news ,addvertisement,category,header}) => {
   return (
     <>
+    <Header category={category} />
+    <NavBar category={category} header={header}/>
       <Container maxW={"container.xl"} minH={"100vh"} p="2" textAlign={"center"}>
         <Heading
           textTransform={"uppercase"}
@@ -60,38 +63,49 @@ const NewsDetails = ({ newsArticle, news ,addvertisement}) => {
           <Image
             src={urlFor(newsArticle?.headerImg)}
             h={["40", "400"]}
-            filter={"hue-rotate(-130deg)"}
           />
 
           <Text lineHeight={"190%"} textAlign={"center"}>
             {newsArticle.para1}
           </Text>
-          <Image
+          {addvertisement[0]?.image?<Image
             src={urlFor(addvertisement[0].image)}
             h={["40", "400"]}
-          />
+          />:" "}
           <Text lineHeight={"190%"} textAlign={"center"}>
             {newsArticle.para2}
           </Text>
-          <Image
+          {addvertisement[1]?.image?<Image
             src={urlFor(addvertisement[1].image)}
             h={["40", "400"]}
-          />
+          />:" "}
           <Text lineHeight={"190%"} textAlign={"center"}>
             {newsArticle.para3}
           </Text>
-          <Image
+          {addvertisement[2]?.image?<Image
             src={urlFor(addvertisement[2].image)}
             h={["40", "400"]}
-          />
+          />:" "}
           <Text lineHeight={"190%"} textAlign={"center"}>
             {newsArticle.para4}
           </Text>
+          {addvertisement[3]?.image?<Image
+            src={urlFor(addvertisement[3].image)}
+            h={["40", "400"]}
+          />:" "}
           <Text lineHeight={"190%"} textAlign={"center"}>
             {newsArticle.para5}
           </Text>
+          {addvertisement[4]?.image?<Image
+            src={urlFor(addvertisement[4].image)}
+            h={["40", "400"]}
+          />:" "}
+          <Text lineHeight={"190%"} textAlign={"center"}>
+            {newsArticle.para6}
+          </Text>
         </Stack>
       </Container>
+      <Footer/>
     </>
   );
 };
@@ -117,9 +131,13 @@ export const getStaticProps = async ({ params: { slug } }) => {
 
   const addvertisementQuery = `*[_type=="advertisement"]`;
   const addvertisement = await client.fetch(addvertisementQuery);
+  const categoryQuery = `*[_type=="category"]`;
+  const category = await client.fetch(categoryQuery);
 
+  const headerQuery = `*[_type=="header"]`;
+  const header = await client.fetch(headerQuery);
   return {
-    props: { newsArticle, news ,addvertisement},
+    props: { newsArticle, news ,addvertisement,category,header},
   };
 };
 export default NewsDetails;
