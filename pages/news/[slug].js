@@ -34,7 +34,7 @@ const NewsDetails = ({ newsArticle, news ,addvertisement,category,header}) => {
         </Heading>
         <Stack>
           <Text as="sub" lineHeight={"100%"} textAlign={"center"}>
-            {newsArticle.heading2}
+            {newsArticle?.heading2}
           </Text>
           <Text
             as="sub"
@@ -42,7 +42,7 @@ const NewsDetails = ({ newsArticle, news ,addvertisement,category,header}) => {
             lineHeight={"100%"}
             letterSpacing={"widest"}
           >
-            {newsArticle.jounalist}
+            {newsArticle?.jounalist}
           </Text>
           <Text
             as="sub"
@@ -50,7 +50,7 @@ const NewsDetails = ({ newsArticle, news ,addvertisement,category,header}) => {
             textAlign={"center"}
             lineHeight={"100%"}
           >
-            {newsArticle.location}
+            {newsArticle?.location}
           </Text>
         </Stack>
 
@@ -66,42 +66,42 @@ const NewsDetails = ({ newsArticle, news ,addvertisement,category,header}) => {
           />
 
           <Text lineHeight={"190%"} textAlign={"center"}>
-            {newsArticle.para1}
+            {newsArticle?.para1?newsArticle?.para1:" "}
           </Text>
           {addvertisement[0]?.image?<Image
             src={urlFor(addvertisement[0].image)}
             h={["40", "400"]}
           />:" "}
           <Text lineHeight={"190%"} textAlign={"center"}>
-            {newsArticle.para2}
+          {newsArticle?.para2?newsArticle?.para2:" "}
           </Text>
           {addvertisement[1]?.image?<Image
             src={urlFor(addvertisement[1].image)}
             h={["40", "400"]}
           />:" "}
           <Text lineHeight={"190%"} textAlign={"center"}>
-            {newsArticle.para3}
+          {newsArticle?.para3?newsArticle?.para3:" "}
           </Text>
           {addvertisement[2]?.image?<Image
             src={urlFor(addvertisement[2].image)}
             h={["40", "400"]}
           />:" "}
           <Text lineHeight={"190%"} textAlign={"center"}>
-            {newsArticle.para4}
+          {newsArticle?.para4?newsArticle?.para4:" "}
           </Text>
           {addvertisement[3]?.image?<Image
             src={urlFor(addvertisement[3].image)}
             h={["40", "400"]}
           />:" "}
           <Text lineHeight={"190%"} textAlign={"center"}>
-            {newsArticle.para5}
+          {newsArticle?.para5?newsArticle?.para5:" "}
           </Text>
           {addvertisement[4]?.image?<Image
             src={urlFor(addvertisement[4].image)}
             h={["40", "400"]}
           />:" "}
           <Text lineHeight={"190%"} textAlign={"center"}>
-            {newsArticle.para6}
+          {newsArticle?.para6?newsArticle?.para6:" "}
           </Text>
         </Stack>
       </Container>
