@@ -63,6 +63,7 @@ const NewsDetails = ({ newsArticle, news ,addvertisement,category,header}) => {
           <Image
             src={urlFor(newsArticle?.headerImg)}
             h={["40", "400"]}
+            alt="advertisement"
           />
 
           <Text lineHeight={"190%"} textAlign={"center"}>
@@ -71,6 +72,7 @@ const NewsDetails = ({ newsArticle, news ,addvertisement,category,header}) => {
           {addvertisement[0]?.image?<Image
             src={urlFor(addvertisement[0].image)}
             h={["40", "400"]}
+            alt="advertisement"
           />:" "}
           <Text lineHeight={"190%"} textAlign={"center"}>
           {newsArticle?.para2?newsArticle?.para2:" "}
@@ -78,6 +80,7 @@ const NewsDetails = ({ newsArticle, news ,addvertisement,category,header}) => {
           {addvertisement[1]?.image?<Image
             src={urlFor(addvertisement[1].image)}
             h={["40", "400"]}
+            alt="advertisement"
           />:" "}
           <Text lineHeight={"190%"} textAlign={"center"}>
           {newsArticle?.para3?newsArticle?.para3:" "}
@@ -85,6 +88,7 @@ const NewsDetails = ({ newsArticle, news ,addvertisement,category,header}) => {
           {addvertisement[2]?.image?<Image
             src={urlFor(addvertisement[2].image)}
             h={["40", "400"]}
+            alt="advertisement"
           />:" "}
           <Text lineHeight={"190%"} textAlign={"center"}>
           {newsArticle?.para4?newsArticle?.para4:" "}
@@ -92,6 +96,7 @@ const NewsDetails = ({ newsArticle, news ,addvertisement,category,header}) => {
           {addvertisement[3]?.image?<Image
             src={urlFor(addvertisement[3].image)}
             h={["40", "400"]}
+            alt="advertisement"
           />:" "}
           <Text lineHeight={"190%"} textAlign={"center"}>
           {newsArticle?.para5?newsArticle?.para5:" "}
@@ -99,6 +104,7 @@ const NewsDetails = ({ newsArticle, news ,addvertisement,category,header}) => {
           {addvertisement[4]?.image?<Image
             src={urlFor(addvertisement[4].image)}
             h={["40", "400"]}
+            alt="advertisement"
           />:" "}
           <Text lineHeight={"190%"} textAlign={"center"}>
           {newsArticle?.para6?newsArticle?.para6:" "}
