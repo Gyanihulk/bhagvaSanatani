@@ -21,7 +21,7 @@ const MiddleNewsList = ({ newsArticles }) => {
           <h2>
             <AccordionButton>
               <Box as="span" flex="1" textAlign="left">
-              {news.heading1}
+              {news?.heading1?news?.heading1:""}
               </Box>
               <AccordionIcon />
             </AccordionButton>
@@ -32,7 +32,7 @@ const MiddleNewsList = ({ newsArticles }) => {
           {news?.headerImg ? <Image src={urlFor(news?.headerImg)}/>:"No Image "}
           </AccordionPanel>
           <AccordionPanel pb={4}>
-          {news.heading2}
+          {news?.heading2?news?.heading2:""}
           </AccordionPanel>
           </Link>
         </AccordionItem>

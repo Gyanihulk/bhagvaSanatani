@@ -109,6 +109,18 @@ const NewsDetails = ({ newsArticle, news ,addvertisement,category,header}) => {
           <Text lineHeight={"190%"} textAlign={"center"}>
           {newsArticle?.para6?newsArticle?.para6:" "}
           </Text>
+          <Text lineHeight={"190%"} textAlign={"center"}>
+          {newsArticle?.para7?newsArticle?.para7:" "}
+          </Text>
+          <Text lineHeight={"190%"} textAlign={"center"}>
+          {newsArticle?.para8?newsArticle?.para8:" "}
+          </Text>
+          <Text lineHeight={"190%"} textAlign={"center"}>
+          {newsArticle?.para9?newsArticle?.para9:" "}
+          </Text>
+          <Text lineHeight={"190%"} textAlign={"center"}>
+          {newsArticle?.para10?newsArticle?.para10:" "}
+          </Text>
         </Stack>
       </Container>
       <Footer/>
