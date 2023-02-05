@@ -8,6 +8,7 @@ import {
   Stack,
   Text,
   VStack,
+  Carousel
 } from "@chakra-ui/react";
 import React from "react";
 import { AiOutlineCloudUpload } from "react-icons/ai";
@@ -62,7 +63,8 @@ const NewsDetails = ({ newsArticle, news ,addvertisement,category,header}) => {
         >
           <Image
             src={urlFor(newsArticle?.headerImg)}
-            h={["40", "400"]}
+            w="100%"
+          h="400px"
             alt="advertisement"
           />
 
