@@ -24,6 +24,7 @@ const NewsDetails = ({ newsArticle, news ,addvertisement,category,header}) => {
     <Head>
     <title>{newsArticle?.heading1}</title>
     <meta property="og:image" content={imageLink} />
+    <meta property="og:image" content={imageLink} />
     </Head>
     <Header category={category} />
     <NavBar category={category} header={header}/>

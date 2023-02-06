@@ -67,6 +67,14 @@ const Footer = () => {
               Instagram
             </a>
           </Button>
+          <Heading size={'md'} textTransform={'uppercase'}>
+            Maintained and Developed by
+          </Heading>
+          <Button variant={'link'} colorScheme={'white'}>
+            <a target={'black'} href="https://ubiquitous-palmier-e3a771.netlify.app/">
+              Gyani Hulk
+            </a>
+          </Button>          
         </VStack>
       </Stack>
     </Box>
