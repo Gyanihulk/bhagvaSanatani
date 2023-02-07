@@ -3,6 +3,8 @@ import Script from "next/script";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { SSRProvider } from "react-bootstrap";
 import { ChakraProvider } from '@chakra-ui/react'
+import { GoogleAnalytics } from "nextjs-google-analytics";
+
 function MyApp({ Component, pageProps }) {
   return (<>
   {/* <Script id="Adsense-id" 
@@ -13,7 +15,7 @@ crossorigin="anonymous"
 /> */}
   <SSRProvider>
       <ChakraProvider>
-
+      <GoogleAnalytics trackPageViews />
       <Component {...pageProps} />
       </ChakraProvider>
     </SSRProvider>
