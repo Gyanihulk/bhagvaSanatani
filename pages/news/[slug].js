@@ -18,6 +18,7 @@ import NavBar from "../../components/NavBar";
 import { client, urlFor } from "../../lib/client";
 import Head from "next/head";
 const NewsDetails = ({ newsArticle, news ,addvertisement,category,header}) => {
+ 
   const imageLink=urlFor(newsArticle?.headerImg).url()
   return (
     <>

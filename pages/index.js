@@ -43,9 +43,9 @@ export const getServerSideProps = async () => {
   const headerQuery = `*[_type=="header"]`;
   const header = await client.fetch(headerQuery);
 
-  const newsQuery = `*[_type=="news"] | order(launchAt asc)`;
+  const newsQuery = `*[_type=="news"] | order(_createdAt desc)[6...15]`;
   const news = await client.fetch(newsQuery);
-  const newsQueryTop5 = `*[_type=="news"] | order(launchAt asc)[0...5]`;
+  const newsQueryTop5 = `*[_type=="news"] | order(_createdAt desc)[0...5] {...,Categories[]->{name}}`;
   const newsTop5 = await client.fetch(newsQueryTop5);
   return {
     props: { category, header, news ,newsTop5},

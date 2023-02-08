@@ -91,47 +91,11 @@ a {
   width: 100%;
   max-width: 20rem;
   min-height: 15.1rem;
-  background: url("https://i.imgur.com/PGeufpt.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 
-/* DEADPOOL IMG */
-.scroll-img-item:nth-child(2) .scroll-img {
-  background: url("https://i.imgur.com/3L128HY.png");
-}
-
-/* MINECRAFT IMG */
-.scroll-img-item:nth-child(3) .scroll-img {
-  background: url("https://i.imgur.com/yLKf4nz.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-/* HARRY P. IMG */
-.scroll-img-item:nth-child(4) .scroll-img {
-  background: url("https://i.imgur.com/If644nP.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-/* SUPERNATURAL IMG */
-.scroll-img-item:nth-child(5) .scroll-img {
-  background: url("https://i.imgur.com/XLEp4MO.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.scroll-img-item:nth-child(7) .scroll-img {
-  background: url("https://i.imgur.com/If644nP.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
 
 .scroll-img-item {
   display: flex;

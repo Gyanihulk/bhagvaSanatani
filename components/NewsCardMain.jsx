@@ -1,15 +1,17 @@
+import { Image } from "@chakra-ui/react";
 import Link from "next/link";
 import React, { useEffect } from "react";
+import { urlFor } from "../lib/client";
 
 const NewsCardMain = ({ news ,index}) => {
    
-    console.log(index)
+   console.log(news?.Categories)
   const date = news?.launchAt;
   return news?.heading1 ? (
     <div className="scroll-img-item">
-      <div className="scroll-img"></div>
+      <div className="scroll-img"><Image className="scroll-img" src={urlFor(news?.headerImg)}/></div>
 
-      <button className="img-btn"> Category</button>
+      <button className="img-btn">{news?.Categories?news.Categories[0].name:"Category"}</button>
 
       <div className="scroll-img-texts">
         <p className="scroll-img-title">

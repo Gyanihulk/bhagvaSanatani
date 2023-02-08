@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import NewsCardMain from "./NewsCardMain";
 
 const NewsContainer = ({ newsArticles }) => {
- 
+//  console.log(newsArticles)
   return (
     <div className="scroll-imgs-container">
       <h1>Latest News</h1>
