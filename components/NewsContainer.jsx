@@ -7,7 +7,6 @@ const NewsContainer = ({ newsArticles }) => {
     <div className="scroll-imgs-container">
       <h1>Latest News</h1>
       {newsArticles.map((newsArticle,index) => (<>
-        {console.log(index)}
         <NewsCardMain key={index} news={newsArticle} index={index}/>
       </>
     

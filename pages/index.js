@@ -29,7 +29,6 @@ export default function Home({ category, header, news ,newsTop5}) {
       <NavBar category={category} header={header} />
       <NewsContainer newsArticles={newsTop5}/>
       <MiddleNewsList newsArticles={news}/>
-      
       <GoogleAdsenseWidget />
       <Footer />
     </>

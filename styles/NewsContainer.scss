@@ -36,7 +36,9 @@ a {
   }
 }
 
-
+.google-advertisement{
+  width: 100% important
+}
 /* ALL IMGS BUTTON */
 .img-btn {
   width: 8rem;
@@ -83,7 +85,9 @@ a {
 	text-align: center;
 }
 }
-
+.adsbygoogle{
+  width: 100%;
+}
 /* PAIN IMG */
 .scroll-img {
   position: relative;
@@ -167,7 +171,6 @@ a {
 /* MEDIAS */
 @media (max-width: 500px) {
   .scroll-imgs-container {
-    padding-right: 0.5rem;
     row-gap: 3rem;
   }
 

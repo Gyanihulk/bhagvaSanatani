@@ -5,7 +5,6 @@ import { urlFor } from "../lib/client";
 
 const NewsCardMain = ({ news ,index}) => {
    
-   console.log(news?.Categories)
   const date = news?.launchAt;
   return news?.heading1 ? (
     <div className="scroll-img-item">
