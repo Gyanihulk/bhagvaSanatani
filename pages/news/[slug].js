@@ -8,7 +8,7 @@ import {
   Stack,
   Text,
   VStack,
-  Carousel
+  Carousel,
 } from "@chakra-ui/react";
 import React from "react";
 import { AiOutlineCloudUpload } from "react-icons/ai";
@@ -17,19 +17,26 @@ import Header from "../../components/Header";
 import NavBar from "../../components/NavBar";
 import { client, urlFor } from "../../lib/client";
 import Head from "next/head";
+
 const NewsDetails = ({ newsArticle, news ,addvertisement,category,header}) => {
  
   const imageLink=urlFor(newsArticle?.headerImg).url()
+
   return (
     <>
-    <Head>
-    <title>{newsArticle?.heading1}</title>
-    <meta property="og:image" content={imageLink} />
-    <meta property="og:image" content={imageLink} />
-    </Head>
-    <Header category={category} />
-    <NavBar category={category} header={header}/>
-      <Container maxW={"container.xl"} minH={"100vh"} p="2" textAlign={"center"}>
+      <Head>
+        <title>{newsArticle?.heading1}</title>
+        <meta property="og:image" content={imageLink} />
+        <meta property="og:image" content={imageLink} />
+      </Head>
+      <Header category={category} />
+      <NavBar category={category} header={header} />
+      <Container
+        maxW={"container.xl"}
+        minH={"100vh"}
+        p="2"
+        textAlign={"center"}
+      >
         <Heading
           textTransform={"uppercase"}
           py="2"
@@ -69,70 +76,81 @@ const NewsDetails = ({ newsArticle, news ,addvertisement,category,header}) => {
           // direction={['row', 'column']}
         >
           <Image
-            src={urlFor(newsArticle?.headerImg)}
-            w="100%"
-          h="400px"
-            alt="advertisement"
+            src={urlFor(newsArticle?.headerImg)}          
+            alt="headerImage"
           />
 
           <Text lineHeight={"190%"} textAlign={"center"}>
-            {newsArticle?.para1?newsArticle?.para1:" "}
+            {newsArticle?.para1 ? newsArticle?.para1 : " "}
           </Text>
-          {addvertisement[0]?.image?<Image
-            src={urlFor(addvertisement[0].image)}
-            h={["40", "400"]}
-            alt="advertisement"
-          />:" "}
+          {newsArticle?.secondaryimage1 ? <Image src={urlFor(newsArticle?.secondaryimage1)}/>:" "}
+          
           <Text lineHeight={"190%"} textAlign={"center"}>
-          {newsArticle?.para2?newsArticle?.para2:" "}
+            {newsArticle?.para2 ? newsArticle?.para2 : " "}
           </Text>
-          {addvertisement[1]?.image?<Image
-            src={urlFor(addvertisement[1].image)}
-            h={["40", "400"]}
-            alt="advertisement"
-          />:" "}
+          {addvertisement[1]?.image ? (
+            <Image
+              src={urlFor(addvertisement[1].image)}
+              h={["40", "400"]}
+              alt="advertisement"
+            />
+          ) : (
+            " "
+          )}
           <Text lineHeight={"190%"} textAlign={"center"}>
-          {newsArticle?.para3?newsArticle?.para3:" "}
+            {newsArticle?.para3 ? newsArticle?.para3 : " "}
           </Text>
-          {addvertisement[2]?.image?<Image
-            src={urlFor(addvertisement[2].image)}
-            h={["40", "400"]}
-            alt="advertisement"
-          />:" "}
+          {addvertisement[2]?.image ? (
+            <Image
+              src={urlFor(addvertisement[2].image)}
+              h={["40", "400"]}
+              alt="advertisement"
+            />
+          ) : (
+            " "
+          )}
           <Text lineHeight={"190%"} textAlign={"center"}>
-          {newsArticle?.para4?newsArticle?.para4:" "}
+            {newsArticle?.para4 ? newsArticle?.para4 : " "}
           </Text>
-          {addvertisement[3]?.image?<Image
-            src={urlFor(addvertisement[3].image)}
-            h={["40", "400"]}
-            alt="advertisement"
-          />:" "}
+          {addvertisement[3]?.image ? (
+            <Image
+              src={urlFor(addvertisement[3].image)}
+              h={["40", "400"]}
+              alt="advertisement"
+            />
+          ) : (
+            " "
+          )}
           <Text lineHeight={"190%"} textAlign={"center"}>
-          {newsArticle?.para5?newsArticle?.para5:" "}
+            {newsArticle?.para5 ? newsArticle?.para5 : " "}
           </Text>
-          {addvertisement[4]?.image?<Image
-            src={urlFor(addvertisement[4].image)}
-            h={["40", "400"]}
-            alt="advertisement"
-          />:" "}
+          {addvertisement[4]?.image ? (
+            <Image
+              src={urlFor(addvertisement[4].image)}
+              h={["40", "400"]}
+              alt="advertisement"
+            />
+          ) : (
+            " "
+          )}
           <Text lineHeight={"190%"} textAlign={"center"}>
-          {newsArticle?.para6?newsArticle?.para6:" "}
+            {newsArticle?.para6 ? newsArticle?.para6 : " "}
           </Text>
           <Text lineHeight={"190%"} textAlign={"center"}>
-          {newsArticle?.para7?newsArticle?.para7:" "}
+            {newsArticle?.para7 ? newsArticle?.para7 : " "}
           </Text>
           <Text lineHeight={"190%"} textAlign={"center"}>
-          {newsArticle?.para8?newsArticle?.para8:" "}
+            {newsArticle?.para8 ? newsArticle?.para8 : " "}
           </Text>
           <Text lineHeight={"190%"} textAlign={"center"}>
-          {newsArticle?.para9?newsArticle?.para9:" "}
+            {newsArticle?.para9 ? newsArticle?.para9 : " "}
           </Text>
           <Text lineHeight={"190%"} textAlign={"center"}>
-          {newsArticle?.para10?newsArticle?.para10:" "}
+            {newsArticle?.para10 ? newsArticle?.para10 : " "}
           </Text>
         </Stack>
       </Container>
-      <Footer/>
+      <Footer />
     </>
   );
 };
@@ -164,7 +182,7 @@ export const getStaticProps = async ({ params: { slug } }) => {
   const headerQuery = `*[_type=="header"]`;
   const header = await client.fetch(headerQuery);
   return {
-    props: { newsArticle, news ,addvertisement,category,header},
+    props: { newsArticle, news, addvertisement, category, header },
   };
 };
 export default NewsDetails;
