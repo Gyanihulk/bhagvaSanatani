@@ -26,9 +26,9 @@ const getNews = ({ category, header }) => {
   const [news, setNews] = useState([]);
   const [nextPage, setNextPage] = useState("");
   async function getNewsdata() {
-    console.log(location, language);
+   
     const news = await fetchNewsApi(location, language);
-    console.log(news);
+  
     setNextPage(news.data.nextPage);
     setNews(news.data.results);
   }
@@ -40,7 +40,6 @@ const getNews = ({ category, header }) => {
 
   const getNextPageNews = async () => {
     const news = await fetchNewsApi(location, language,nextPage);
-    console.log(news)
     setNextPage(news.data.nextPage);
     setNews(news.data.results);
   };
