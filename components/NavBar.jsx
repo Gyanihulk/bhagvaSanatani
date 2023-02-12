@@ -49,12 +49,16 @@ export default function NavBar({ category, header }) {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={"center"}>
-            <Box><Image
-              borderRadius="full"
-              boxSize="170px"
-              src={urlFor(header[0].image)}
-              alt="Dan Abramov"
-            /></Box>
+            <Box>
+              <Link href="/">
+                <Image
+                  borderRadius="full"
+                  boxSize="170px"
+                  src={urlFor(header[0].image)}
+                  alt="Dan Abramov"
+                />
+              </Link>
+            </Box>
             <HStack
               as={"nav"}
               spacing={4}
