@@ -15,6 +15,7 @@ import {
   useColorModeValue,
   Stack,
   Image,
+  Text,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 
@@ -40,7 +41,7 @@ export default function NavBar({ category, header }) {
   return (
     <>
       <Box bgColor={"blackAlpha.900"} px={4}>
-        <Flex h={193} alignItems={"center"} justifyContent={"space-between"}>
+        <Flex h={65} alignItems={"center"} justifyContent={"space-between"}>
           <IconButton
             size={"md"}
             icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
@@ -51,12 +52,7 @@ export default function NavBar({ category, header }) {
           <HStack spacing={8} alignItems={"center"}>
             <Box>
               <Link href="/">
-                <Image
-                  borderRadius="full"
-                  boxSize="170px"
-                  src={urlFor(header[0].image)}
-                  alt="Dan Abramov"
-                />
+                <Text fontSize="2xl" color='tomato' as="b">Sanatan Bhagva</Text>
               </Link>
             </Box>
             <HStack

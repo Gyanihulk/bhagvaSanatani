@@ -24,8 +24,6 @@ export default function Home({ category, header, news ,newsTop5}) {
           }
         }}
       />
-
-      <Header category={category} />
       <NavBar category={category} header={header} />
       <NewsContainer newsArticles={newsTop5}/>
       <MiddleNewsList newsArticles={news}/>
