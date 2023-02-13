@@ -2,7 +2,6 @@ import Head from "next/head";
 import Image from "next/image";
 import Script from "next/script";
 import Footer from "../components/Footer";
-import Header from "../components/Header";
 import MiddleNewsList from "../components/MiddleNewsList";
 import NavBar from "../components/NavBar";
 import NewsContainer from "../components/NewsContainer";
