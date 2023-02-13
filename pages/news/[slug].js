@@ -11,6 +11,7 @@ import {
   Carousel,
 } from "@chakra-ui/react";
 import React from "react";
+import YouTube from "react-youtube";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import Footer from "../../components/Footer";
 import NavBar from "../../components/NavBar";
@@ -24,8 +25,25 @@ const NewsDetails = ({
   category,
   header,
 }) => {
-  const imageLink = urlFor(newsArticle?.headerImg).width(200).height(200).url();
-  console.log(imageLink);
+  let imageLink;
+  let youtubeId;
+  if (newsArticle?.headerImg) {
+    imageLink = urlFor(newsArticle?.headerImg).width(200).height(200).url();
+  }
+  if (newsArticle?.youtubelink) {
+    let id = newsArticle?.youtubelink;
+    youtubeId = id.slice(17);
+  }
+  console.log(youtubeId);
+  console.log(newsArticle);
+  const opts = {
+    height:"150%",
+    width: "100%",
+    playerVars: {
+      // https://developers.google.com/youtube/player_parameters
+      autoplay: 1,
+    },
+  };
   return (
     <>
       <Head>
@@ -73,14 +91,24 @@ const NewsDetails = ({
             {newsArticle?.location}
           </Text>
         </Stack>
-
+        {newsArticle?.youtubelink ? (
+            <YouTube videoId={youtubeId} opts={opts} />
+          ) : (
+            ""
+          )}
         <Stack
           h="full"
           p={"4"}
           alignItems={"center"}
           // direction={['row', 'column']}
         >
-          <Image src={urlFor(newsArticle?.headerImg)} alt="headerImage" />
+          
+
+          {newsArticle?.headerImg ? (
+            <Image src={urlFor(newsArticle?.headerImg)} alt="headerImage" />
+          ) : (
+            ""
+          )}
 
           <Text lineHeight={"190%"} textAlign={"center"}>
             {newsArticle?.para1 ? newsArticle?.para1 : " "}

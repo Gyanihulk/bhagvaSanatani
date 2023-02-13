@@ -8,8 +8,9 @@ const NewsCardMain = ({ news ,index}) => {
   const date = news?.launchAt;
   return news?.heading1 ? (
     <div className="scroll-img-item">
-      <div className="scroll-img"><Image className="scroll-img" src={urlFor(news?.headerImg)}/></div>
-
+      <Link href={`/news/${news?.slug?.current ? news.slug.current : ""}`}>
+      <div className="scroll-img">{news?.headerImg?<Image className="scroll-img" src={urlFor(news?.headerImg)}/>: <Image className="scroll-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQtLOdHlk-lIwkS405oRErDm2OcV9Lp18JMQ&usqp=CAU"/> }</div>
+      </Link>
       <button className="img-btn">{news?.Categories?news.Categories[0].name:"Category"}</button>
 
       <div className="scroll-img-texts">

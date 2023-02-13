@@ -26,6 +26,7 @@
     "react-bootstrap-icons": "^1.9.1",
     "react-dom": "18.2.0",
     "react-icons": "^4.7.1",
+    "react-youtube": "^10.1.0",
     "sass": "^1.57.0"
   },
   "devDependencies": {
