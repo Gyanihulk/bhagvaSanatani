@@ -13,7 +13,6 @@ import {
 import React from "react";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import Footer from "../../components/Footer";
-import Header from "../../components/Header";
 import NavBar from "../../components/NavBar";
 import { client, urlFor } from "../../lib/client";
 import Head from "next/head";
@@ -21,15 +20,13 @@ import Head from "next/head";
 const NewsDetails = ({ newsArticle, news ,addvertisement,category,header}) => {
  
   const imageLink=urlFor(newsArticle?.headerImg).url()
-
+console.log(imageLink)
   return (
     <>
       <Head>
         <title>{newsArticle?.heading1}</title>
         <meta property="og:image" content={imageLink} />
-        <meta property="og:image" content={imageLink} />
       </Head>
-      <Header category={category} />
       <NavBar category={category} header={header} />
       <Container
         maxW={"container.xl"}

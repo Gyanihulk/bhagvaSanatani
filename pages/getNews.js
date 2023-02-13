@@ -1,6 +1,6 @@
 // import { Button, Flex, Link } from "@chakra-ui/react";
 import React, { useState } from "react";
-import Header from "../components/Header";
+
 import NavBar from "../components/NavBar";
 import { client } from "../lib/client";
 import { fetchNewsApi } from "../lib/fetchNewsApi";
@@ -45,7 +45,6 @@ const getNews = ({ category, header }) => {
   };
   return (
     <>
-      <Header category={category} />
       <NavBar category={category} header={header} />
       <Stack
         h="full"
