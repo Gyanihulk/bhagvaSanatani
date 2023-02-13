@@ -24,7 +24,7 @@ const NewsDetails = ({
   category,
   header,
 }) => {
-  const imageLink = urlFor(newsArticle?.headerImg).url();
+  const imageLink = urlFor(newsArticle?.headerImg).width(200).height(200).url();
   console.log(imageLink);
   return (
     <>
