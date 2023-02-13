@@ -17,15 +17,23 @@ import NavBar from "../../components/NavBar";
 import { client, urlFor } from "../../lib/client";
 import Head from "next/head";
 
-const NewsDetails = ({ newsArticle, news ,addvertisement,category,header}) => {
- 
-  const imageLink=urlFor(newsArticle?.headerImg).url()
-console.log(imageLink)
+const NewsDetails = ({
+  newsArticle,
+  news,
+  addvertisement,
+  category,
+  header,
+}) => {
+  const imageLink = urlFor(newsArticle?.headerImg).url();
+  console.log(imageLink);
   return (
     <>
       <Head>
         <title>{newsArticle?.heading1}</title>
         <meta property="og:image" content={imageLink} />
+        <meta property="og:image:type" content="image/jpeg"></meta>
+        <meta property="og:image:width" content="300" />
+        <meta property="og:image:height" content="300"></meta>
       </Head>
       <NavBar category={category} header={header} />
       <Container
@@ -72,16 +80,17 @@ console.log(imageLink)
           alignItems={"center"}
           // direction={['row', 'column']}
         >
-          <Image
-            src={urlFor(newsArticle?.headerImg)}          
-            alt="headerImage"
-          />
+          <Image src={urlFor(newsArticle?.headerImg)} alt="headerImage" />
 
           <Text lineHeight={"190%"} textAlign={"center"}>
             {newsArticle?.para1 ? newsArticle?.para1 : " "}
           </Text>
-          {newsArticle?.secondaryimage1 ? <Image src={urlFor(newsArticle?.secondaryimage1)}/>:" "}
-          
+          {newsArticle?.secondaryimage1 ? (
+            <Image src={urlFor(newsArticle?.secondaryimage1)} />
+          ) : (
+            " "
+          )}
+
           <Text lineHeight={"190%"} textAlign={"center"}>
             {newsArticle?.para2 ? newsArticle?.para2 : " "}
           </Text>
