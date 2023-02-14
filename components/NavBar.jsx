@@ -52,7 +52,7 @@ export default function NavBar({ category, header }) {
           <HStack spacing={8} alignItems={"center"}>
             <Box>
               <Link href="/">
-                <Text fontSize="2xl" color='tomato' as="b">Sanatan Bhagva</Text>
+                <Text fontSize="2xl" color='tomato' as="b">Bhagwa Sanatan Times</Text>
               </Link>
             </Box>
             <HStack
