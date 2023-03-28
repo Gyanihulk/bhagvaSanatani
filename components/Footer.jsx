@@ -50,7 +50,7 @@ const Footer = () => {
           <Heading textTransform={'uppercase'} textAlign={'center'}>
           Bhagwa Sanatan Times
           </Heading>
-          <Text>All rights received</Text>
+          <Text>All rights Reserved</Text>
         </VStack>
 
         <VStack w={'full'}>

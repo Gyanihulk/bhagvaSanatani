@@ -11,7 +11,7 @@ import { GoogleAdsenseWidget } from "../lib/googleAdsense";
 export default function Home({ category, header, news ,newsTop5}) {
   return (
     <>
-      <Script
+      {/* <Script
         id="google-adsense"
         src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
         data-ad-client="ca-pub-2326546523711729"
@@ -22,7 +22,7 @@ export default function Home({ category, header, news ,newsTop5}) {
             };
           }
         }}
-      />
+      /> */}
       <NavBar category={category} header={header} />
       <NewsContainer newsArticles={newsTop5}/>
       <MiddleNewsList newsArticles={news}/>
