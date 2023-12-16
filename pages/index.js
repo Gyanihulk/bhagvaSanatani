@@ -7,8 +7,38 @@ import NavBar from "../components/NavBar";
 import NewsContainer from "../components/NewsContainer";
 import { client } from "../lib/client";
 import { GoogleAdsenseWidget } from "../lib/googleAdsense";
+import Header from "../components/Header";
+import useScript from "../lib/helper";
+import { MobileMenu } from "../components/MobileMenu";
+import { Advertisement } from "../components/Advertisement";
+import { HeroBigGrid } from "../components/HeroBigGrid";
+import BlockNews from "../components/BlockNews";
+import { SliderNews } from "../components/SliderNews";
+import BlockNews1 from "../components/BlockNews1";
+import BlockNews2 from "../components/BlockNews2";
+import BlockNews3 from "../components/BlockNews3";
+import { useEffect, useState } from "react";
 
 export default function Home({ category, header, news ,newsTop5}) {
+  useScript('/theme.js');
+  console.log(category)
+  const [showHeader, setShowHeader] = useState(true);
+
+  useEffect(() => {
+    const handleResize = () => {
+      // Set showHeader to false if the screen width is less than 768 pixels
+      setShowHeader(window.innerWidth >= 768);
+    };
+
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+
+    // Call handler right away so state gets updated with initial window size
+    handleResize();
+
+    // Remove event listener on cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   return (
     <>
       {/* <Script
@@ -23,11 +53,22 @@ export default function Home({ category, header, news ,newsTop5}) {
           }
         }}
       /> */}
-      <NavBar category={category} header={header} />
+      {/* <NavBar category={category} header={header} />
       <NewsContainer newsArticles={newsTop5}/>
       <MiddleNewsList newsArticles={news}/>
-      <GoogleAdsenseWidget />
-      <Footer />
+      <GoogleAdsenseWidget /> */}
+      <Header category={category}/>
+    <main className={showHeader?"pt-20":""}>
+<Advertisement/>
+<HeroBigGrid news={newsTop5}/>
+      
+<BlockNews />
+<SliderNews/>
+<BlockNews1/>
+<BlockNews2/>
+<BlockNews3/>
+    </main>
+   
     </>
   );
 }
