@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const BlockNews1 = ({ news }) => {
   return (
-    <div class="bg-white py-6">
+    <div class="bg-white">
       <div class="xl:container mx-auto px-3 sm:px-4 xl:px-2">
         <div class="flex flex-row flex-wrap">
           <div class="flex-shrink max-w-full w-full overflow-hidden">

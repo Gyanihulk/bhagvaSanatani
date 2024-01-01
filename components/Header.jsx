@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { MobileMenu } from './MobileMenu'
+import Link from 'next/link';
 
 const Header = ({category}) => {
 
@@ -27,7 +28,10 @@ const Header = ({category}) => {
     <nav className="bg-black">
        <div className="xl:container mx-auto px-3 sm:px-4 xl:px-2">
          <div className="flex justify-between">
+          <Link href={"/"}>
+            
            <div className="mx-w-10 text-2xl font-bold capitalize text-white flex items-center">bhagwa Sanatan Times</div>
+          </Link>
            
            <div className="flex flex-row">
              {/* <!-- nav menu --> */}
@@ -96,12 +100,12 @@ const Header = ({category}) => {
                    </li>
                  </ul>
                </li>
-               {category.slice(4,8).map((cate)=>(
+               {/* {category.slice(4,8).map((cate)=>(
 
 <li className="active relative border-l border-gray-800 hover:bg-gray-900">
  <a className="block py-3 px-6 border-b-2 border-transparent" href="/">{cate.name}</a>
 </li>
- ))}
+ ))} */}
              </ul>
 
              <div className="flex flex-row items-center text-gray-300">

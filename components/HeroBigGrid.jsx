@@ -6,7 +6,7 @@ import Link from 'next/link'
 export const HeroBigGrid = ({news}) => {
 
   return (
-    <div class="bg-white py-6">
+    <div class="bg-white py-16">
     <div class="xl:container mx-auto px-3 sm:px-4 xl:px-2">
       {/* <!-- big grid 1 --> */}
       <div class="flex flex-row flex-wrap">
