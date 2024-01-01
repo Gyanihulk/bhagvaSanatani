@@ -2,7 +2,9 @@ import React, { useEffect } from 'react'
 import useSticky from '../lib/useSticky';
 import Splide from '@splidejs/splide';
 import '@splidejs/splide/dist/css/splide.min.css';
-export const SliderNews = () => {
+import { urlFor } from '../lib/client';
+import Image from 'next/image';
+export const SliderNews = ({news}) => {
     useSticky();
     useEffect(() => {
         // Initialize Splide here
@@ -87,96 +89,27 @@ export const SliderNews = () => {
             <div id="post-carousel" class="splide post-carousel">
               <div class="splide__track">
                 <ul class="splide__list">
-                  <li class="splide__slide">
-                    <div class="w-full pb-3">
-                      <div class="hover-img bg-white">
-                        <a href="">
-                          <img class="max-w-full w-full mx-auto" src="src/img/dummy/img14.jpg" alt="alt title"/>
-                        </a>
-                        <div class="py-3 px-6">
-                          <h3 class="text-lg font-bold leading-tight mb-2">
-                            <a href="#">5 Tips to Save Money Booking Your Next Hotel Room</a>
-                          </h3>
-                          <a class="text-gray-500" href="#"><span class="inline-block h-3 border-l-2 border-red-600 mr-2"></span>Europe</a>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="splide__slide">
-                    <div class="w-full pb-3">
-                      <div class="hover-img bg-white">
-                        <a href="">
-                          <img class="max-w-full w-full mx-auto" src="src/img/dummy/img15.jpg" alt="alt title"/>
-                        </a>
-                        <div class="py-3 px-6">
-                          <h3 class="text-lg font-bold leading-tight mb-2">
-                            <a href="#">5 Tips to Save Money Booking Your Next Hotel Room</a>
-                          </h3>
-                          <a class="text-gray-500" href="#"><span class="inline-block h-3 border-l-2 border-red-600 mr-2"></span>Europe</a>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="splide__slide">
-                    <div class="w-full pb-3">
-                      <div class="hover-img bg-white">
-                        <a href="">
-                          <img class="max-w-full w-full mx-auto" src="src/img/dummy/img16.jpg" alt="alt title"/>
-                        </a>
-                        <div class="py-3 px-6">
-                          <h3 class="text-lg font-bold leading-tight mb-2">
-                            <a href="#">5 Tips to Save Money Booking Your Next Hotel Room</a>
-                          </h3>
-                          <a class="text-gray-500" href="#"><span class="inline-block h-3 border-l-2 border-red-600 mr-2"></span>Europe</a>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="splide__slide">
-                    <div class="w-full pb-3">
-                      <div class="hover-img bg-white">
-                        <a href="">
-                          <img class="max-w-full w-full mx-auto" src="src/img/dummy/img17.jpg" alt="alt title"/>
-                        </a>
-                        <div class="py-3 px-6">
-                          <h3 class="text-lg font-bold leading-tight mb-2">
-                            <a href="#">5 Tips to Save Money Booking Your Next Hotel Room</a>
-                          </h3>
-                          <a class="text-gray-500" href="#"><span class="inline-block h-3 border-l-2 border-red-600 mr-2"></span>Europe</a>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="splide__slide">
-                    <div class="w-full pb-3">
-                      <div class="hover-img bg-white">
-                        <a href="">
-                          <img class="max-w-full w-full mx-auto" src="src/img/dummy/img18.jpg" alt="alt title"/>
-                        </a>
-                        <div class="py-3 px-6">
-                          <h3 class="text-lg font-bold leading-tight mb-2">
-                            <a href="#">5 Tips to Save Money Booking Your Next Hotel Room</a>
-                          </h3>
-                          <a class="text-gray-500" href="#"><span class="inline-block h-3 border-l-2 border-red-600 mr-2"></span>Europe</a>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="splide__slide">
-                    <div class="w-full pb-3">
-                      <div class="hover-img bg-white">
-                        <a href="">
-                          <img class="max-w-full w-full mx-auto" src="src/img/dummy/img1.jpg" alt="alt title"/>
-                        </a>
-                        <div class="py-3 px-6">
-                          <h3 class="text-lg font-bold leading-tight mb-2">
-                            <a href="#">5 Tips to Save Money Booking Your Next Hotel Room</a>
-                          </h3>
-                          <a class="text-gray-500" href="#"><span class="inline-block h-3 border-l-2 border-red-600 mr-2"></span>Europe</a>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
+{news && news.map((item)=>(
+  <li key={item._id} class="splide__slide">
+  <div class="w-full pb-3">
+    <div class="hover-img bg-white">
+      <a href="">
+      <Image
+                            width={650}
+                            height={500} class="max-w-full w-full mx-auto"  src={urlFor(item.headerImg)} alt="alt title"/>
+      </a>
+      <div class="py-3 px-6">
+        <h3 class="text-lg font-bold leading-tight mb-2">
+          <a href="#"> {item?.heading1}</a>
+        </h3>
+        <a class="text-gray-500" href="#"><span class="inline-block h-3 border-l-2 border-red-600 mr-2"></span>{item?.location}</a>
+      </div>
+    </div>
+  </div>
+</li>
+))}
+                
+                 
                 </ul>
               </div>
             </div>

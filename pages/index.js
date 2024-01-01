@@ -19,9 +19,9 @@ import BlockNews2 from "../components/BlockNews2";
 import BlockNews3 from "../components/BlockNews3";
 import { useEffect, useState } from "react";
 
-export default function Home({ category, header, news ,newsTop5}) {
+export default function Home({ category, news10, news ,newsTop5,haridwarNews,UttarakhandNews,sanatanNews,groupedNews,advertisement}) {
   useScript('/theme.js');
-  console.log(category)
+
   const [showHeader, setShowHeader] = useState(true);
 
   useEffect(() => {
@@ -39,6 +39,7 @@ export default function Home({ category, header, news ,newsTop5}) {
     // Remove event listener on cleanup
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+  console.log(advertisement)
   return (
     <>
       {/* <Script
@@ -57,16 +58,20 @@ export default function Home({ category, header, news ,newsTop5}) {
       <NewsContainer newsArticles={newsTop5}/>
       <MiddleNewsList newsArticles={news}/>
       <GoogleAdsenseWidget /> */}
+      <Head>
+        <title>Bhagwa Santan Times</title>
+    
+      </Head>
       <Header category={category}/>
     <main className={showHeader?"pt-20":""}>
-<Advertisement/>
+
 <HeroBigGrid news={newsTop5}/>
       
-<BlockNews />
-<SliderNews/>
-<BlockNews1/>
-<BlockNews2/>
-<BlockNews3/>
+<BlockNews haridwarNews={haridwarNews} advertisement={advertisement}/>
+<SliderNews news={news10}/>
+<BlockNews1 news={UttarakhandNews}/>
+<BlockNews2 news={news} advertisement={advertisement}/>
+<BlockNews3 news={sanatanNews}/>
     </main>
    
     </>
@@ -80,11 +85,35 @@ export const getServerSideProps = async () => {
   const headerQuery = `*[_type=="header"]`;
   const header = await client.fetch(headerQuery);
 
-  const newsQuery = `*[_type=="news"] | order(_createdAt desc)[6...15]`;
+  const newsQuery = `*[_type=="news"] | order(_createdAt desc)[6...16]`;
   const news = await client.fetch(newsQuery);
   const newsQueryTop5 = `*[_type=="news"] | order(_createdAt desc)[0...5] {...,Categories[]->{name}}`;
   const newsTop5 = await client.fetch(newsQueryTop5);
+
+  const newsQueryHaridwar = `*[_type=="news" && "Haridwar" in Categories[]->name] | order(_createdAt desc)[0...6] {..., Categories[]->{name}}`;
+  const haridwarNews=await client.fetch(newsQueryHaridwar);
+
+  const newsQueryUttarakhand = `*[_type=="news" && "Uttarakhand " in Categories[]->name] | order(_createdAt desc) {..., Categories[]->{name}}`;
+  const UttarakhandNews = await client.fetch(newsQueryUttarakhand);
+
+const newsQuerySanatan = `*[_type=="news" && "Sanatan News" in Categories[]->name] | order(_createdAt desc) {..., Categories[]->{name}}`;
+const sanatanNews = await client.fetch(newsQuerySanatan);
+// const categoryGroupedNewsQuery = `
+// {
+//   "categories": *[_type == "category"]{
+//     name,
+//     "news": *[_type == "news" && references(^._id)] | order(_createdAt desc)
+//   }
+// }
+// `;
+
+// const groupedNews = await client.fetch(categoryGroupedNewsQuery);
+
+const newsQuery10 = `*[_type=="news"] | order(_createdAt desc)[25...40]`;
+const news10 = await client.fetch(newsQuery10);
+const addUery = `*[_type=="advertisement"] `;
+const advertisement = await client.fetch(addUery);
   return {
-    props: { category, header, news ,newsTop5},
+    props: { category, header, news ,newsTop5,haridwarNews,UttarakhandNews,sanatanNews,news10,advertisement},
   };
 };

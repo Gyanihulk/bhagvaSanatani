@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { MobileMenu } from './MobileMenu'
 
 const Header = ({category}) => {
-  console.log(category)
+
   const [showHeader, setShowHeader] = useState(true);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const Header = ({category}) => {
     <nav className="bg-black">
        <div className="xl:container mx-auto px-3 sm:px-4 xl:px-2">
          <div className="flex justify-between">
-           <div className="mx-w-10 text-2xl font-bold capitalize text-white flex items-center">bhagwa</div>
+           <div className="mx-w-10 text-2xl font-bold capitalize text-white flex items-center">bhagwa Sanatan Times</div>
            
            <div className="flex flex-row">
              {/* <!-- nav menu --> */}
@@ -35,7 +35,7 @@ const Header = ({category}) => {
               {category.slice(0,3).map((cate)=>(
 
                 <li className="active relative border-l border-gray-800 hover:bg-gray-900">
-                 <a className="block py-3 px-6 border-b-2 border-transparent" href="index.html">{cate.name}</a>
+                 <a className="block py-3 px-6 border-b-2 border-transparent" href="/">{cate.name}</a>
                </li>
                  ))}
               
@@ -50,8 +50,8 @@ const Header = ({category}) => {
 
                      {/* <!--dropdown submenu--> */}
                      <ul className="dropdown-menu absolute left-full right-auto transform top-full z-50 border-b-0 text-left -mt-10 ml-0 mr-0 bg-white border border-gray-100" style={{minWidth: "12rem"}}>
-                       <li className="relative hover:bg-gray-50"><a className="block py-2 px-6 border-b border-gray-100" href="index.html">Homepage 1</a></li>
-                       <li className="relative hover:bg-gray-50"><a className="block py-2 px-6 border-b border-gray-100" href="index-2.html">Homepage 2</a></li>
+                       <li className="relative hover:bg-gray-50"><a className="block py-2 px-6 border-b border-gray-100" href="/">Homepage 1</a></li>
+                       <li className="relative hover:bg-gray-50"><a className="block py-2 px-6 border-b border-gray-100" href="/">Homepage 2</a></li>
                      </ul>
                    </li>
                    <li className="subdropdown relative hover:bg-gray-50">
@@ -88,7 +88,7 @@ const Header = ({category}) => {
 
                      {/* <!--dropdown submenu--> */}
                      <ul className="dropdown-menu absolute left-full right-auto transform top-full z-50 border-b-0 text-left -mt-10 ml-0 mr-0 bg-white border border-gray-100" style={{minWidth: "12rem"}}>
-                       <li className="relative hover:bg-gray-50"><a className="block py-2 px-6 border-b border-gray-100" href="docs/index.html">Get started</a></li>
+                       <li className="relative hover:bg-gray-50"><a className="block py-2 px-6 border-b border-gray-100" href="docs//">Get started</a></li>
                        <li className="relative hover:bg-gray-50"><a className="block py-2 px-6 border-b border-gray-100" href="docs/components.html">Components</a></li>
                        <li className="relative hover:bg-gray-50"><a className="block py-2 px-6 border-b border-gray-100" href="docs/credits.html">Credits</a></li>
                        <li className="relative hover:bg-gray-50"><a className="block py-2 px-6 border-b border-gray-100" href="docs/changelogs.html">Changelogs</a></li>
@@ -99,7 +99,7 @@ const Header = ({category}) => {
                {category.slice(4,8).map((cate)=>(
 
 <li className="active relative border-l border-gray-800 hover:bg-gray-900">
- <a className="block py-3 px-6 border-b-2 border-transparent" href="index.html">{cate.name}</a>
+ <a className="block py-3 px-6 border-b-2 border-transparent" href="/">{cate.name}</a>
 </li>
  ))}
              </ul>

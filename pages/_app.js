@@ -36,7 +36,7 @@ crossorigin="anonymous"
 export const getServerSideProps = async () => {
   const categoryQuery = `*[_type=="category"]`;
   const category = await client.fetch(categoryQuery);
-console.log(category)
+
   return {
     props: { category},
   };

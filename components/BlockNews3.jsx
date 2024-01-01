@@ -1,156 +1,118 @@
+import Image from 'next/image'
 import React from 'react'
+import { urlFor } from '../lib/client'
+import Link from 'next/link'
 
-const BlockNews3 = () => {
+const BlockNews3 = ({news,advertisement}) => {
+
   return (
-    <div class="bg-gray-50 py-6">
-    <div class="xl:container mx-auto px-3 sm:px-4 xl:px-2">
-      <div class="flex flex-row flex-wrap">
+    <div className="bg-gray-50 py-6">
+    <div className="xl:container mx-auto px-3 sm:px-4 xl:px-2">
+      <div className="flex flex-row flex-wrap">
         {/* <!-- Left --> */}
-        <div class="flex-shrink max-w-full w-full lg:w-2/3  overflow-hidden">
-          <div class="w-full py-3">
-            <h2 class="text-gray-800 text-2xl font-bold">
-              <span class="inline-block h-5 border-l-3 border-red-600 mr-2"></span>Asian
+        <div className="flex-shrink max-w-full w-full lg:w-2/3  overflow-hidden">
+          <div className="w-full py-3">
+            <h2 className="text-gray-800 text-2xl font-bold">
+              <span className="inline-block h-5 border-l-3 border-red-600 mr-2"></span>Sanatan News
             </h2>
           </div>
-          <div class="flex flex-row flex-wrap -mx-3">
-            <div class="flex-shrink max-w-full w-full px-3 pb-5">
-              <div class="relative hover-img max-h-98 overflow-hidden">
+          <div className="flex flex-row flex-wrap -mx-3">
+            <div className="flex-shrink max-w-full w-full px-3 pb-5">
+              <div className="relative hover-img max-h-98 overflow-hidden">
                 {/* <!--thumbnail--> */}
                 <a href="#">
-                  <img class="max-w-full w-full mx-auto h-auto" src="src/img/dummy/img2.jpg" alt="Image description"/>
+                  <Image   width={1000}
+                            height={500} className="max-w-full w-full mx-auto h-auto" src={urlFor(news[0].headerImg)} alt="Image description"/>
                 </a>
-                <div class="absolute px-5 pt-8 pb-5 bottom-0 w-full bg-gradient-cover">
+                <div className="absolute px-5 pt-8 pb-5 bottom-0 w-full bg-gradient-cover">
                   {/* <!--title--> */}
                   <a href="#">
-                    <h2 class="text-3xl font-bold capitalize text-white mb-3">Amazon Shoppers Are Ditching Designer Belts for This Best-Selling</h2>
+                    <h2 className="text-3xl font-bold capitalize text-white mb-3"> {news[0]?.heading1}</h2>
                   </a>
-                  <p class="text-gray-100 hidden sm:inline-block">This is a wider card with supporting text below as a natural lead-in to additional content. This very helpfull for generate default content..</p>                                                  
+                  <p className="text-gray-100 hidden sm:inline-block">{news[0]?.para1?.slice(0,100)}...</p>                                                  
                   {/* <!-- author and date --> */}
-                  <div class="pt-2">
-                    <div class="text-gray-100"><div class="inline-block h-3 border-l-2 border-red-600 mr-2"></div>Europe</div>
+                  <div className="pt-2">
+                    <div className="text-gray-100"><div className="inline-block h-3 border-l-2 border-red-600 mr-2"></div>{news[0]?.location}</div>
                   </div>
                 </div>
               </div>
             </div>
+{news && news.slice(1,7).map((item)=>(
+   <Link key={item._id} href={`/news/${item.slug.current ? item.slug.current : ""}`}>
 
-            <div class="flex-shrink max-w-full w-full sm:w-1/3 px-3 pb-3 pt-3 sm:pt-0 border-b-2 sm:border-b-0 border-dotted border-gray-100">
-              <div class="flex flex-row sm:block hover-img">
-                <a href="">
-                  <img class="max-w-full w-full mx-auto" src="src/img/dummy/img27.jpg" alt="alt title"/>
-                </a>
-                <div class="py-0 sm:py-3 pl-3 sm:pl-0">
-                  <h3 class="text-lg font-bold leading-tight mb-2">
-                    <a href="#">5 Tips to Save Money Booking Your Next Hotel Room</a>
-                  </h3>
-                  <p class="hidden md:block text-gray-600 leading-tight mb-1">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                  <a class="text-gray-500" href="#"><span class="inline-block h-3 border-l-2 border-red-600 mr-2"></span>Europe</a>
-                </div>
-              </div>
-            </div>
-            <div class="flex-shrink max-w-full w-full sm:w-1/3 px-3 pb-3 pt-3 sm:pt-0 border-b-2 sm:border-b-0 border-dotted border-gray-100">
-              <div class="flex flex-row sm:block hover-img">
-                <a href="">
-                  <img class="max-w-full w-full mx-auto" src="src/img/dummy/img3.jpg" alt="alt title"/>
-                </a>
-                <div class="py-0 sm:py-3 pl-3 sm:pl-0">
-                  <h3 class="text-lg font-bold leading-tight mb-2">
-                    <a href="#">5 Tips to Save Money Booking Your Next Hotel Room</a>
-                  </h3>
-                  <p class="hidden md:block text-gray-600 leading-tight mb-1">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                  <a class="text-gray-500" href="#"><span class="inline-block h-3 border-l-2 border-red-600 mr-2"></span>Europe</a>
-                </div>
-              </div>
-            </div>
-            <div class="flex-shrink max-w-full w-full sm:w-1/3 px-3 pb-3 pt-3 sm:pt-0 border-b-2 sm:border-b-0 border-dotted border-gray-100">
-              <div class="flex flex-row sm:block hover-img">
-                <a href="">
-                  <img class="max-w-full w-full mx-auto" src="src/img/dummy/img4.jpg" alt="alt title"/>
-                </a>
-                <div class="py-0 sm:py-3 pl-3 sm:pl-0">
-                  <h3 class="text-lg font-bold leading-tight mb-2">
-                    <a href="#">5 Tips to Save Money Booking Your Next Hotel Room</a>
-                  </h3>
-                  <p class="hidden md:block text-gray-600 leading-tight mb-1">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                  <a class="text-gray-500" href="#"><span class="inline-block h-3 border-l-2 border-red-600 mr-2"></span>Europe</a>
-                </div>
-              </div>
-            </div>
-            <div class="flex-shrink max-w-full w-full sm:w-1/3 px-3 pb-3 pt-3 sm:pt-0 border-b-2 sm:border-b-0 border-dotted border-gray-100">
-              <div class="flex flex-row sm:block hover-img">
-                <a href="">
-                  <img class="max-w-full w-full mx-auto" src="src/img/dummy/img5.jpg" alt="alt title"/>
-                </a>
-                <div class="py-0 sm:py-3 pl-3 sm:pl-0">
-                  <h3 class="text-lg font-bold leading-tight mb-2">
-                    <a href="#">5 Tips to Save Money Booking Your Next Hotel Room</a>
-                  </h3>
-                  <p class="hidden md:block text-gray-600 leading-tight mb-1">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                  <a class="text-gray-500" href="#"><span class="inline-block h-3 border-l-2 border-red-600 mr-2"></span>Europe</a>
-                </div>
-              </div>
-            </div>
-            <div class="flex-shrink max-w-full w-full sm:w-1/3 px-3 pb-3 pt-3 sm:pt-0 border-b-2 sm:border-b-0 border-dotted border-gray-100">
-              <div class="flex flex-row sm:block hover-img">
-                <a href="">
-                  <img class="max-w-full w-full mx-auto" src="src/img/dummy/img6.jpg" alt="alt title"/>
-                </a>
-                <div class="py-0 sm:py-3 pl-3 sm:pl-0">
-                  <h3 class="text-lg font-bold leading-tight mb-2">
-                    <a href="#">5 Tips to Save Money Booking Your Next Hotel Room</a>
-                  </h3>
-                  <p class="hidden md:block text-gray-600 leading-tight mb-1">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                  <a class="text-gray-500" href="#"><span class="inline-block h-3 border-l-2 border-red-600 mr-2"></span>Europe</a>
-                </div>
-              </div>
-            </div>
-            <div class="flex-shrink max-w-full w-full sm:w-1/3 px-3 pb-3 pt-3 sm:pt-0 border-b-2 sm:border-b-0 border-dotted border-gray-100">
-              <div class="flex flex-row sm:block hover-img">
-                <a href="">
-                  <img class="max-w-full w-full mx-auto" src="src/img/dummy/img7.jpg" alt="alt title"/>
-                </a>
-                <div class="py-0 sm:py-3 pl-3 sm:pl-0">
-                  <h3 class="text-lg font-bold leading-tight mb-2">
-                    <a href="#">5 Tips to Save Money Booking Your Next Hotel Room</a>
-                  </h3>
-                  <p class="hidden md:block text-gray-600 leading-tight mb-1">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                  <a class="text-gray-500" href="#"><span class="inline-block h-3 border-l-2 border-red-600 mr-2"></span>Europe</a>
-                </div>
-              </div>
-            </div>
+
+  <div key={item._id} className="flex-shrink max-w-full w-full sm:w-1/3 px-3 pb-3 pt-3 sm:pt-0 border-b-2 sm:border-b-0 border-dotted border-gray-100">
+  <div className="flex flex-row sm:block hover-img">
+    <a href="">
+    {item.headerImg && (
+                          <Image
+                            width={650}
+                            height={500}
+                            className="max-w-full w-full mx-auto"
+                            src={urlFor(item.headerImg)}
+                            alt="alt title"
+                          />
+                        )}
+   
+    </a>
+    <div className="py-0 sm:py-3 pl-3 sm:pl-0">
+      <h3 className="text-lg font-bold leading-tight mb-2">
+        <a href="#">          {item?.heading1}</a>
+      </h3>
+      <p className="hidden md:block text-gray-600 leading-tight mb-1"> {item?.para1?.slice(0,100)}...</p>
+      <a className="text-gray-500" href="#"><span className="inline-block h-3 border-l-2 border-red-600 mr-2"></span> {item?.location}</a>
+    </div>
+  </div>
+</div>
+</Link>
+))}
+          
+        
           </div>
         </div>
         {/* <!-- right --> */}
-        <div class="flex-shrink max-w-full w-full lg:w-1/3 lg:pl-8 lg:pt-14 lg:pb-8 order-first lg:order-last">
-          <div class="w-full bg-white">
-            <div class="mb-6">
-              <div class="p-4 bg-gray-100">
-                <h2 class="text-lg font-bold">Most Popular</h2>
+        <div className="flex-shrink max-w-full w-full lg:w-1/3 lg:pl-8 lg:pt-14 lg:pb-8 order-first lg:order-last">
+          <div className="w-full bg-white">
+            <div className="mb-6">
+              <div className="p-4 bg-gray-100">
+                <h2 className="text-lg font-bold">Most Popular</h2>
               </div>
-              <ul class="post-number">
-                <li class="border-b border-gray-100 hover:bg-gray-50">
-                  <a class="text-lg font-bold px-6 py-3 flex flex-row items-center" href="#">Why the world would end without political polls</a>
+              <ul className="post-number">
+                <li className="border-b border-gray-100 hover:bg-gray-50">
+                  <a className="text-lg font-bold px-6 py-3 flex flex-row items-center" href="#">Why the world would end without political polls</a>
                 </li>
-                <li class="border-b border-gray-100 hover:bg-gray-50">
-                  <a class="text-lg font-bold px-6 py-3 flex flex-row items-center" href="#">Meet The Man Who Designed The Ducati Monster</a>
+                <li className="border-b border-gray-100 hover:bg-gray-50">
+                  <a className="text-lg font-bold px-6 py-3 flex flex-row items-center" href="#">Meet The Man Who Designed The Ducati Monster</a>
                 </li>
-                <li class="border-b border-gray-100 hover:bg-gray-50">
-                  <a class="text-lg font-bold px-6 py-3 flex flex-row items-center" href="#">2020 Audi R8 Spyder spy shots release</a>
+                <li className="border-b border-gray-100 hover:bg-gray-50">
+                  <a className="text-lg font-bold px-6 py-3 flex flex-row items-center" href="#">2020 Audi R8 Spyder spy shots release</a>
                 </li>
-                <li class="border-b border-gray-100 hover:bg-gray-50">
-                  <a class="text-lg font-bold px-6 py-3 flex flex-row items-center" href="#">Lamborghini makes Huracán GT3 racer faster for 2019</a>
+                <li className="border-b border-gray-100 hover:bg-gray-50">
+                  <a className="text-lg font-bold px-6 py-3 flex flex-row items-center" href="#">Lamborghini makes Huracán GT3 racer faster for 2019</a>
                 </li>
-                <li class="border-b border-gray-100 hover:bg-gray-50">
-                  <a class="text-lg font-bold px-6 py-3 flex flex-row items-center" href="#">ZF plans $14 billion autonomous vehicle push, concept van</a>
+                <li className="border-b border-gray-100 hover:bg-gray-50">
+                  <a className="text-lg font-bold px-6 py-3 flex flex-row items-center" href="#">ZF plans $14 billion autonomous vehicle push, concept van</a>
                 </li>
               </ul>
             </div>
           </div>
 
-          <div class="text-sm py-6 sticky">
-            <div class="w-full text-center">
-              <a class="uppercase" href="#">Advertisement</a>
+          <div className="text-sm py-6 sticky">
+            <div className="w-full text-center">
+              <a className="uppercase" href="#">Advertisement</a>
               <a href="#">
-                <img class="mx-auto" src="src/img/ads/250.jpg" alt="advertisement area"/>
+              {
+Array.isArray(advertisement) && advertisement.length > 2 ? (
+    <Image
+      width={650}
+      height={500}
+      className="mx-auto"
+      src={urlFor(advertisement[2]?.image)}
+      alt="advertisement area"
+    />
+  ): <img className="mx-auto" src="src/img/ads/250.jpg" alt="advertisement area"/>
+}
+               
               </a>
             </div>
           </div>

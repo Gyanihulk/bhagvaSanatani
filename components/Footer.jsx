@@ -51,9 +51,9 @@ const Footer = () => {
               <div class="flex-shrink max-w-full w-1/2 md:w-1/4 mb-6 lg:mb-0">
                 <h4 class="text-base leading-normal mb-3 uppercase text-gray-100">Product</h4>
                 <ul>
-                  <li class="py-1 hover:text-white"><a href="#">Landing</a></li>
-                  <li class="py-1 hover:text-white"><a href="#">Pages</a></li>
-                  <li class="py-1 hover:text-white"><a href="#">Sections</a></li>
+                  <li class="py-1 hover:text-white"><a href="#">Webinars/Events</a></li>
+                  <li class="py-1 hover:text-white"><a href="#">Podcasts</a></li>
+                  <li class="py-1 hover:text-white"><a href="#">Video Reports</a></li>
                   <li class="py-1 hover:text-white"><a href="#">Sign Up</a></li>
                   <li class="py-1 hover:text-white"><a href="#">Login</a></li>
                 </ul>
@@ -61,19 +61,19 @@ const Footer = () => {
               <div class="flex-shrink max-w-full w-1/2 md:w-1/4 mb-6 lg:mb-0">
                 <h4 class="text-base leading-normal mb-3 uppercase text-gray-100">Support</h4>
                 <ul>
-                  <li class="py-1 hover:text-white"><a href="#">Documentation</a></li>
-                  <li class="py-1 hover:text-white"><a href="#">Changelog</a></li>
-                  <li class="py-1 hover:text-white"><a href="#">Tools</a></li>
-                  <li class="py-1 hover:text-white"><a href="#">Icons</a></li>
+                  <li class="py-1 hover:text-white"><a href="#">Community Forum</a></li>
+                  <li class="py-1 hover:text-white"><a href="#">Feedback and Suggestions</a></li>
+                  <li class="py-1 hover:text-white"><a href="#">FAQs</a></li>
+                  <li class="py-1 hover:text-white"><a href="#">Special Reports</a></li>
                 </ul>
               </div>
               <div class="flex-shrink max-w-full w-1/2 md:w-1/4 mb-6 lg:mb-0">
                 <h4 class="text-base leading-normal mb-3 uppercase text-gray-100">Includes</h4>
                 <ul>
-                  <li class="py-1 hover:text-white"><a href="#">Utilities</a></li>
-                  <li class="py-1 hover:text-white"><a href="#">Components</a></li>
-                  <li class="py-1 hover:text-white"><a href="#">Example code</a></li>
-                  <li class="py-1 hover:text-white"><a href="#">Updates</a></li>
+                  <li class="py-1 hover:text-white"><a href="#">Featured Articles</a></li>
+                  <li class="py-1 hover:text-white"><a href="#">Events Calendar</a></li>
+                  <li class="py-1 hover:text-white"><a href="#">Subscribe to Newsletter</a></li>
+                  <li class="py-1 hover:text-white"><a href="#">Reader Polls</a></li>
                 </ul>
               </div>
               <div class="flex-shrink max-w-full w-1/2 md:w-1/4 mb-6 lg:mb-0">
@@ -82,7 +82,7 @@ const Footer = () => {
                   <li class="py-1 hover:text-white hover:text-white"><a href="#">Privacy Policy</a></li>
                   <li class="py-1 hover:text-white"><a href="#">Terms of Use</a></li>
                   <li class="py-1 hover:text-white"><a href="#">License</a></li>
-                  <li class="py-1 hover:text-white"><a href="#">GDPR</a></li>
+                  <li class="py-1 hover:text-white"><a href="#">About Us</a></li>
                 </ul>
               </div>
             </div>

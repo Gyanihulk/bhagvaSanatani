@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 export const HeroBigGrid = ({news}) => {
-console.log(news[0].slug.current)
+
   return (
     <div class="bg-white py-6">
     <div class="xl:container mx-auto px-3 sm:px-4 xl:px-2">
