@@ -9,9 +9,15 @@ import Header from "../components/Header";
 import { MobileMenu } from "../components/MobileMenu";
 import { useEffect, useState } from "react";
 import { client } from "../lib/client";
+import { initGA, logPageView } from "../lib/ga";
 
 function MyApp({ Component, pageProps }) {
- 
+  useEffect(() => {
+   
+      initGA();
+      logPageView();
+  
+  }, []);
   return (<>
   <Script id="adsbygoogle-init" 
   async strategy="afterInteractive"
