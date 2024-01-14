@@ -10,8 +10,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@chakra-ui/icons": "^2.0.14",
-    "@chakra-ui/react": "^2.4.4",
     "@google-cloud/compute": "^3.7.0",
     "@sanity/client": "^3.4.1",
     "@sanity/image-url": "^1.0.1",

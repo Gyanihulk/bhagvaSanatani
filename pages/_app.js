@@ -2,7 +2,6 @@ import "../styles/index.scss";
 import Script from "next/script";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { SSRProvider } from "react-bootstrap";
-import { ChakraProvider } from '@chakra-ui/react'
 import { GoogleAnalytics } from "nextjs-google-analytics";
 import Footer from "../components/Footer";
 import Header from "../components/Header";

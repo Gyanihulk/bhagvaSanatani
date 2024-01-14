@@ -1,7 +1,8 @@
-import { Image } from "@chakra-ui/react";
+
 import Link from "next/link";
 import React, { useEffect } from "react";
 import { urlFor } from "../lib/client";
+import Image from "next/image";
 
 const NewsCardMain = ({ news ,index}) => {
    

@@ -1,10 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Script from "next/script";
-import Footer from "../components/Footer";
-import MiddleNewsList from "../components/MiddleNewsList";
-import NavBar from "../components/NavBar";
-import NewsContainer from "../components/NewsContainer";
+
 import { client } from "../lib/client";
 import { GoogleAdsenseWidget } from "../lib/googleAdsense";
 import Header from "../components/Header";
