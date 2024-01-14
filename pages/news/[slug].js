@@ -1,25 +1,13 @@
-import {
-  Button,
-  Container,
-  Heading,
-  HStack,
-  Image,
-  Input,
-  Stack,
-  Text,
-  VStack,
-  Carousel,
-} from "@chakra-ui/react";
+
 import React from "react";
 import YouTube from "react-youtube";
 import { AiOutlineCloudUpload } from "react-icons/ai";
-import Footer from "../../components/Footer";
-import NavBar from "../../components/NavBar";
 import { client, urlFor } from "../../lib/client";
 import Head from "next/head";
 import { Advertisement1 } from "../../components/Advertisement1";
 import Thoughts from "../../components/Thoughts";
 import Header from "../../components/Header";
+import Image from "next/image";
 
 const NewsDetails = ({
   newsArticle,
