@@ -74,7 +74,7 @@ const BlockNews = ({ haridwarNews, advertisement }) => {
                           alt="advertisement area"
                         />
                       ) : (
-                        <img
+                        <Image
                           className="mx-auto"
                           src="src/img/ads/250.jpg"
                           alt="advertisement area"

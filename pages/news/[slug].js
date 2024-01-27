@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import YouTube from "react-youtube";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import { client, urlFor } from "../../lib/client";
@@ -16,6 +16,18 @@ const NewsDetails = ({
   category,
   header,
 }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    // Set up an interval to change the image every 5 seconds
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % addvertisement.length);
+    }, 5000);
+
+    // Clear the interval when the component is unmounted
+    return () => clearInterval(interval);
+  }, [addvertisement]);
+
   let imageLink;
   let youtubeId;
   if (newsArticle?.headerImg) {
@@ -34,6 +46,7 @@ const NewsDetails = ({
       autoplay: 1,
     },
   };
+  console.log(newsArticle,news)
   return (
     <>
       <Head>
@@ -76,7 +89,7 @@ const NewsDetails = ({
           ) : (
             ""
           )}
-                    <figcaption> Type here your description</figcaption>
+                   
                   </figure>
                   {/* <h3 class="text-2xl leading-normal mb-2 font-semibold text-gray-800 dark:text-gray-100">Ordered and unordered list</h3>
                   <ul class="pl-8 mb-4">
@@ -91,19 +104,46 @@ const NewsDetails = ({
                     <li class="list-disc list-inside">which of us ever undertakes laborious physical exercise</li>
                   </ul> */}
                   <p class="mb-5">   {newsArticle?.para2 ? newsArticle?.para2 : " "}</p>
-                  
+                  {newsArticle?.secondaryimage1 ? (
+            <Image width={650} height={800} class="max-w-full h-auto" src={urlFor(newsArticle?.secondaryimage1)} alt="headerImage" />
+          ) : (
+            ""
+          )}
                   <p class="mb-5">  {newsArticle?.para3 ? newsArticle?.para3 : " "}</p>
-               
+                  {newsArticle?.secondaryimage2 ? (
+            <Image width={650} height={800} class="max-w-full h-auto" src={urlFor(newsArticle?.secondaryimage2)} alt="headerImage" />
+          ) : (
+            ""
+          )}
                   <p class="mb-5"> {newsArticle?.para4 ? newsArticle?.para4 : " "}</p>
-
+                  {newsArticle?.secondaryimage3 ? (
+            <Image width={650} height={800} class="max-w-full h-auto" src={urlFor(newsArticle?.secondaryimage3)} alt="headerImage" />
+          ) : (
+            ""
+          )}
                   <p class="mb-5">{newsArticle?.para5 ? newsArticle?.para5 : " "}</p>
                   {/* <figure class="lg:float-left text-center lg:text-left ml-0 lg:-ml-4 mr-7 mb-7">
                     <img class="max-w-full h-auto mx-auto" src="/src/img/dummy/post2.jpg" alt="Image description"/>
                     <figcaption>Align left images</figcaption>
                   </figure> */}
-
+  {newsArticle?.secondaryimage4 ? (
+            <Image width={650} height={800} class="max-w-full h-auto" src={urlFor(newsArticle?.secondaryimage4)} alt="headerImage" />
+          ) : (
+            ""
+          )}
                   <p class="mb-5"> {newsArticle?.para6 ? newsArticle?.para6 : " "}</p>
-
+                  {newsArticle?.secondaryimage5 ? (
+            <Image width={650} height={800} class="max-w-full h-auto" src={urlFor(newsArticle?.secondaryimage5)} alt="headerImage" />
+          ) : (
+            ""
+          )}
+                  {
+  Array.from({ length: 19 }, (_, i) => i + 1).map(paraNumber => (
+    <p key={paraNumber} className="mb-5">
+      {newsArticle[`para${paraNumber}`] ? newsArticle[`para${paraNumber}`] : " "}
+    </p>
+  ))
+}
                   {/* <p class="mb-5">Fusce elementum placerat tellus id. Nulla sit amet pretium enim, in vehicula ligula. Proin nec malesuada liberoque blandit. Sed condimentum neque ligula, id dapibus enim ornare id. Duis porttitor, risus vehicula convallis sagittis, ligula nisi iaculis libero, sit amet convallis nulla magna non tortor.</p> */}
 
                   {/* <h2 class="float-left w-full text-xl leading-normal mb-2 font-semibold text-gray-800 dark:text-gray-100">Live as if you were to die tomorrow.</h2>
@@ -191,14 +231,34 @@ const NewsDetails = ({
               
             </div>
 
-            {/* <div class="text-sm py-6 sticky">
+            <div class="text-sm py-6 sticky">
               <div class="w-full text-center">
                 <a class="uppercase" href="#">Advertisement</a>
-                <a href="#">
-                  <img class="mx-auto" src="/src/img/ads/250.jpg" alt="advertisement area"/>
-                </a>
+                {addvertisement[0] && (
+      
+                  <div class="w-full text-center">
+                    <a href="#">
+                      {Array.isArray(addvertisement) ? (
+                        <Image
+                          width={650}
+                          height={500}
+                          className="mx-auto"
+                          src={urlFor(addvertisement[currentIndex]?.image)}
+                          alt="advertisement area"
+                        />
+                      ) : (
+                        <Image
+                          className="mx-auto"
+                          src="src/img/ads/250.jpg"
+                          alt="advertisement area"
+                        />
+                      )}
+                    </a>
+                  </div>
+               
+          )}
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
       </div>
