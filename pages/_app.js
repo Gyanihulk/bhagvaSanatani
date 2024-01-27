@@ -9,6 +9,7 @@ import { MobileMenu } from "../components/MobileMenu";
 import { useEffect, useState } from "react";
 import { client } from "../lib/client";
 import { initGA, logPageView } from "../lib/ga";
+import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
@@ -18,12 +19,13 @@ function MyApp({ Component, pageProps }) {
   
   }, []);
   return (<>
-  <Script id="adsbygoogle-init" 
-  async strategy="afterInteractive"
-  onError={ (e) => { console.error('Script failed to load', e) }}
-src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2326546523711729"
-crossorigin="anonymous"
-/>
+  <Head>
+        <script 
+          async 
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2326546523711729" 
+          crossOrigin="anonymous">
+        </script>
+      </Head>
   <SSRProvider>
 
 

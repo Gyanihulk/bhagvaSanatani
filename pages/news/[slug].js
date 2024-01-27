@@ -8,6 +8,7 @@ import { Advertisement1 } from "../../components/Advertisement1";
 import Thoughts from "../../components/Thoughts";
 import Header from "../../components/Header";
 import Image from "next/image";
+import GoogleAd from "../../components/GoogleAd";
 
 const NewsDetails = ({
   newsArticle,
@@ -263,6 +264,7 @@ const NewsDetails = ({
         </div>
       </div>
     </div>
+    <GoogleAd/>
 </main>
     </>
   );
