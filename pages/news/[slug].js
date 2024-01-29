@@ -139,11 +139,11 @@ const NewsDetails = ({
             ""
           )}
                   {
-  Array.from({ length: 19 }, (_, i) => i + 1).map(paraNumber => (
-    <p key={paraNumber} className="mb-5">
-      {newsArticle[`para${paraNumber}`] ? newsArticle[`para${paraNumber}`] : " "}
-    </p>
-  ))
+ Array.from({ length: 13 }, (_, i) => i + 7).map(paraNumber => (
+  <p key={paraNumber} className="mb-5">
+    {newsArticle[`para${paraNumber}`] ? newsArticle[`para${paraNumber}`] : " "}
+  </p>
+))
 }
                   {/* <p class="mb-5">Fusce elementum placerat tellus id. Nulla sit amet pretium enim, in vehicula ligula. Proin nec malesuada liberoque blandit. Sed condimentum neque ligula, id dapibus enim ornare id. Duis porttitor, risus vehicula convallis sagittis, ligula nisi iaculis libero, sit amet convallis nulla magna non tortor.</p> */}
 
