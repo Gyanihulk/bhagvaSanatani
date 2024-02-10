@@ -1,9 +1,19 @@
-import React from "react";
-import { urlFor } from "../lib/client";
+import React, { useEffect, useState } from "react";
+import { client, urlFor } from "../lib/client";
 import Image from "next/image";
 import Link from "next/link";
 
 const BlockNews = ({ haridwarNews, advertisement }) => {
+  const [newstop5, setNews] = useState();
+  useEffect(() => {
+    (async () => {
+      const newsQueryTop5 = `*[_type=="news"] | order(_createdAt desc)[0...5] {...,Categories[]->{name}}`;
+      const newsTop5 = await client.fetch(newsQueryTop5);
+      console.log(newsTop5);
+      setNews(newsTop5);
+    })();
+  }, []);
+
   return (
     <div class="bg-white">
       <div class="xl:container mx-auto px-3 sm:px-4 xl:px-2">
@@ -59,8 +69,29 @@ const BlockNews = ({ haridwarNews, advertisement }) => {
           {advertisement[0] && (
             <div class="flex-shrink max-w-full w-full lg:w-1/3 lg:pl-8 lg:pt-14 lg:pb-8 order-first lg:order-last">
               <div class="w-full bg-gray-50 h-full">
+              <div class="mb-6">
+                <div class="p-4 bg-gray-100">
+                  <h2 class="text-lg font-bold">Most Popular</h2>
+                </div>
+                <ul class="post-number">
+                  {newstop5 && newstop5?.map((news)=>(<li  key={news.slug.current} class="border-b border-gray-100 hover:bg-gray-50">
+                    <a
+                      class="text-lg font-bold px-6 py-3 flex flex-row items-center"
+                      href={`/news/${news.slug.current ? news.slug.current : ""}`}
+                    >
+                      {news?.heading1 && news.heading1.slice(0, 44)}
+                
+                    </a>
+                  </li>))
+                    
+                  }
+                  
+                  
+                </ul>
+              </div>
                 <div class="text-sm py-6 sticky">
                   <div class="w-full text-center">
+                    
                     <a class="uppercase" href="#">
                       Advertisement
                     </a>
