@@ -83,7 +83,7 @@ export const SliderNews = ({news}) => {
           <div class="flex-shrink max-w-full w-full py-12 overflow-hidden">
             <div class="w-full py-3">
               <h2 class="text-white text-2xl font-bold text-shadow-black">
-                <span class="inline-block h-5 border-l-3 border-red-600 mr-2"></span>American
+                <span class="inline-block h-5 border-l-3 border-red-600 mr-2"></span>
               </h2>
             </div>
             <div id="post-carousel" class="splide post-carousel">

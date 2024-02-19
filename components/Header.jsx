@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { MobileMenu } from './MobileMenu'
 import Link from 'next/link';
 
-const Header = ({category}) => {
+const Header = ({category,newsheading}) => {
 
   const [showHeader, setShowHeader] = useState(true);
 
@@ -34,7 +34,7 @@ const Header = ({category}) => {
           </Link>
            
            <div className="flex flex-row">
-             {/* <!-- nav menu --> */}
+           
              <ul className="navbar hidden lg:flex lg:flex-row text-gray-400 text-sm items-center font-bold">
               {category.slice(0,3).map((cate)=>(
 
@@ -43,7 +43,7 @@ const Header = ({category}) => {
                </li>
                  ))}
               
-               <li className="dropdown relative border-l border-gray-800 hover:bg-gray-900">
+               {/* <li className="dropdown relative border-l border-gray-800 hover:bg-gray-900">
                  <a className="block py-3 px-6 border-b-2 border-transparent" href="#">More</a>
 
                  <ul className="dropdown-menu font-normal absolute left-0 right-auto top-full z-50 border-b-0 text-left bg-white text-gray-700 border border-gray-100" style={{minWidth: "12rem"}}>
@@ -52,7 +52,7 @@ const Header = ({category}) => {
                        Homepage
                      </a>
 
-                     {/* <!--dropdown submenu--> */}
+               
                      <ul className="dropdown-menu absolute left-full right-auto transform top-full z-50 border-b-0 text-left -mt-10 ml-0 mr-0 bg-white border border-gray-100" style={{minWidth: "12rem"}}>
                        <li className="relative hover:bg-gray-50"><a className="block py-2 px-6 border-b border-gray-100" href="/">Homepage 1</a></li>
                        <li className="relative hover:bg-gray-50"><a className="block py-2 px-6 border-b border-gray-100" href="/">Homepage 2</a></li>
@@ -63,7 +63,7 @@ const Header = ({category}) => {
                        Pages
                      </a>
 
-                     {/* <!--dropdown submenu--> */}
+               
                      <ul className="dropdown-menu absolute left-full right-auto transform top-full z-50 border-b-0 text-left -mt-10 ml-0 mr-0 bg-white border border-gray-100" style={{minWidth: "12rem"}}>
                        <li className="relative hover:bg-gray-50"><a className="block py-2 px-6 border-b border-gray-100" href="404.html">404</a></li>
                        <li className="relative hover:bg-gray-50"><a className="block py-2 px-6 border-b border-gray-100" href="author.html">Author</a></li>
@@ -78,7 +78,7 @@ const Header = ({category}) => {
                        Post
                      </a>
 
-                     {/* <!--dropdown submenu--> */}
+               
                      <ul className="dropdown-menu absolute left-full right-auto transform top-full z-50 border-b-0 text-left -mt-10 ml-0 mr-0 bg-white border border-gray-100" style={{minWidth: "12rem"}}>
                        <li className="relative hover:bg-gray-50"><a className="block py-2 px-6 border-b border-gray-100" href="single.html">Post default</a></li>
                        <li className="relative hover:bg-gray-50"><a className="block py-2 px-6 border-b border-gray-100" href="single-2.html">Post fullwidth</a></li>
@@ -90,7 +90,7 @@ const Header = ({category}) => {
                        Documentation
                      </a>
 
-                     {/* <!--dropdown submenu--> */}
+               
                      <ul className="dropdown-menu absolute left-full right-auto transform top-full z-50 border-b-0 text-left -mt-10 ml-0 mr-0 bg-white border border-gray-100" style={{minWidth: "12rem"}}>
                        <li className="relative hover:bg-gray-50"><a className="block py-2 px-6 border-b border-gray-100" href="docs//">Get started</a></li>
                        <li className="relative hover:bg-gray-50"><a className="block py-2 px-6 border-b border-gray-100" href="docs/components.html">Components</a></li>
@@ -99,7 +99,7 @@ const Header = ({category}) => {
                      </ul>
                    </li>
                  </ul>
-               </li>
+               </li> */}
                {/* {category.slice(4,8).map((cate)=>(
 
 <li className="active relative border-l border-gray-800 hover:bg-gray-900">
@@ -140,7 +140,7 @@ const Header = ({category}) => {
        </div>
     </nav>
  </header>)}
- <MobileMenu category={category}/>
+ <MobileMenu category={category}  newsheading={newsheading}/>
     </>
   )
 }

@@ -36,7 +36,9 @@ export default function Home({ category, news10, news ,newsTop5,haridwarNews,Utt
     // Remove event listener on cleanup
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-  console.log(advertisement)
+
+  const newsheading=newsTop5.map((item)=>item.heading1)
+
   return (
     <>
       {/* <Script
@@ -59,7 +61,7 @@ export default function Home({ category, news10, news ,newsTop5,haridwarNews,Utt
         <title>Bhagwa Santan Times</title>
     
       </Head>
-      <Header category={category}/>
+      <Header category={category} newsheading={newsheading}/>
     <main className={showHeader?"pt-20":""}>
 
 <HeroBigGrid news={newsTop5}/>

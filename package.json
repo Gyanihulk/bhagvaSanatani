@@ -17,6 +17,7 @@
     "autoprefixer": "^10.4.16",
     "axios": "^1.2.3",
     "bootstrap": "^5.2.2",
+    "framer-motion": "^11.0.5",
     "hc-sticky": "^2.2.7",
     "jquery": "^3.6.2",
     "next": "12.3.1",

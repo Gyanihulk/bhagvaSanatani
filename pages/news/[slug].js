@@ -15,10 +15,10 @@ const NewsDetails = ({
   news,
   addvertisement,
   category,
-  header,
+  newsTop5,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-
+  const newsheading=newsTop5.map((item)=>item.heading1)
   useEffect(() => {
     // Set up an interval to change the image every 5 seconds
     const interval = setInterval(() => {
@@ -58,7 +58,7 @@ const NewsDetails = ({
         <meta property="og:image:height" content="300"></meta>
       </Head>
       <main id="content">
-      <Header category={category}/>
+      <Header category={category} newsheading={newsheading}/>
       {/* <Advertisement1/> */}
       <div class="bg-gray-50 py-6">
       <div class="xl:container mx-auto px-3 py-16 sm:px-4 xl:px-2">
@@ -296,8 +296,10 @@ export const getStaticProps = async ({ params: { slug } }) => {
   
   const headerQuery = `*[_type=="header"]`;
   const header = await client.fetch(headerQuery);
+  const newsQueryTop5 = `*[_type=="news"] | order(_createdAt desc)[0...5] {...,Categories[]->{name}}`;
+  const newsTop5 = await client.fetch(newsQueryTop5);
   return {
-    props: { newsArticle, news, addvertisement, category, header },
+    props: { newsArticle, news, addvertisement, category, header ,newsTop5},
   };
 };
 export default NewsDetails;
