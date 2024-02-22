@@ -57,7 +57,7 @@ const NewsDetails = ({
         <meta property="og:image:width" content="300" />
         <meta property="og:image:height" content="300"></meta>
       </Head>
-      <main id="content">
+      <main id="content" className="news-page">
       <Header category={category} newsheading={newsheading}/>
       {/* <Advertisement1/> */}
       <div class="bg-gray-50 py-6">
@@ -74,10 +74,10 @@ const NewsDetails = ({
               <div class="max-w-full w-full px-4">
                 {/* <!-- Post content --> */}
                 <div class="leading-relaxed pb-4">
-                  <p class="mb-5">{newsArticle?.heading2}</p>
+                  <p class="mb-5 ">{newsArticle?.heading2}</p>
 
                   {/* <h2 class="text-xl leading-normal mb-2 font-semibold text-gray-800 dark:text-gray-100">Start your Morning with Smiles</h2> */}
-                  <p class="mb-5"> {newsArticle?.para1 ? newsArticle?.para1 : " "}</p>
+                  <p class="mb-5 news-para "> {newsArticle?.para1 ? newsArticle?.para1 : " "}</p>
                   <figure class="text-center mb-6">
                    
                     {newsArticle?.headerImg ? (
@@ -104,25 +104,25 @@ const NewsDetails = ({
                     <li class="list-disc list-inside">Itaque earum rerum hic tenetur a sapiente delectus</li>
                     <li class="list-disc list-inside">which of us ever undertakes laborious physical exercise</li>
                   </ul> */}
-                  <p class="mb-5">   {newsArticle?.para2 ? newsArticle?.para2 : " "}</p>
+                  <p class="mb-5 news-para ">   {newsArticle?.para2 ? newsArticle?.para2 : " "}</p>
                   {newsArticle?.secondaryimage1 ? (
             <Image width={650} height={800} class="max-w-full h-auto" src={urlFor(newsArticle?.secondaryimage1)} alt="headerImage" />
           ) : (
             ""
           )}
-                  <p class="mb-5">  {newsArticle?.para3 ? newsArticle?.para3 : " "}</p>
+                  <p class="mb-5 news-para ">  {newsArticle?.para3 ? newsArticle?.para3 : " "}</p>
                   {newsArticle?.secondaryimage2 ? (
             <Image width={650} height={800} class="max-w-full h-auto" src={urlFor(newsArticle?.secondaryimage2)} alt="headerImage" />
           ) : (
             ""
           )}
-                  <p class="mb-5"> {newsArticle?.para4 ? newsArticle?.para4 : " "}</p>
+                  <p class="mb-5 news-para "> {newsArticle?.para4 ? newsArticle?.para4 : " "}</p>
                   {newsArticle?.secondaryimage3 ? (
             <Image width={650} height={800} class="max-w-full h-auto" src={urlFor(newsArticle?.secondaryimage3)} alt="headerImage" />
           ) : (
             ""
           )}
-                  <p class="mb-5">{newsArticle?.para5 ? newsArticle?.para5 : " "}</p>
+                  <p class="mb-5 news-para ">{newsArticle?.para5 ? newsArticle?.para5 : " "}</p>
                   {/* <figure class="lg:float-left text-center lg:text-left ml-0 lg:-ml-4 mr-7 mb-7">
                     <img class="max-w-full h-auto mx-auto" src="/src/img/dummy/post2.jpg" alt="Image description"/>
                     <figcaption>Align left images</figcaption>
@@ -132,7 +132,7 @@ const NewsDetails = ({
           ) : (
             ""
           )}
-                  <p class="mb-5"> {newsArticle?.para6 ? newsArticle?.para6 : " "}</p>
+                  <p class="mb-5 news-para "> {newsArticle?.para6 ? newsArticle?.para6 : " "}</p>
                   {newsArticle?.secondaryimage5 ? (
             <Image width={650} height={800} class="max-w-full h-auto" src={urlFor(newsArticle?.secondaryimage5)} alt="headerImage" />
           ) : (
@@ -140,7 +140,7 @@ const NewsDetails = ({
           )}
                   {
  Array.from({ length: 13 }, (_, i) => i + 7).map(paraNumber => (
-  <p key={paraNumber} className="mb-5">
+  <p key={paraNumber} class="mb-5 news-para ">
     {newsArticle[`para${paraNumber}`] ? newsArticle[`para${paraNumber}`] : " "}
   </p>
 ))

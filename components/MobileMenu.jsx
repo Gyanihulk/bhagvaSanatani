@@ -38,15 +38,21 @@ export const MobileMenu = ({ category,newsheading }) => {
         animate="animate"
       >
         {newsheading.map((heading, index) => (
-          <motion.h2
-            key={index}
-            className="min-w-min whitespace-nowrap mr-8"
-          >
+          <div class="message">
             {heading}
-          </motion.h2>
+          </div>
         ))}
       </motion.div>
     </div> */}
+    {/* <div className="relative bg-white block lg:hidden mt-10 mb-3 w-full">
+    <div class="marquee d-flex flex-row">
+    {newsheading.map((heading, index) => (
+      <div class="message">  {heading}.</div>))}
+      
+    </div>
+    </div> */}
+  
+
     <div class="side-area fixed w-full h-full inset-0 z-50">
 
       {/* <!-- bg open --> */}
