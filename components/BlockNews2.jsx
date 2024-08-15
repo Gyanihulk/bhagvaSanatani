@@ -5,11 +5,21 @@ import Link from "next/link";
 
 const BlockNews2 = ({ news, advertisement }) => {
   const [newstop5, setNews] = useState();
+  const [currentIndex, setCurrentIndex] = useState(0);
+  useEffect(() => {
+    // Set up an interval to change the image every 5 seconds
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % advertisement.length);
+    }, 5000);
+
+    // Clear the interval when the component is unmounted
+    return () => clearInterval(interval);
+  }, [advertisement]);
   useEffect(() => {
     (async () => {
       const newsQueryTop5 = `*[_type=="news"] | order(_createdAt desc)[10...15] {...,Categories[]->{name}}`;
       const newsTop5 = await client.fetch(newsQueryTop5);
-      console.log(newsTop5);
+      // console.log(newsTop5);
       setNews(newsTop5);
     })();
   }, []);
@@ -106,19 +116,22 @@ const BlockNews2 = ({ news, advertisement }) => {
                   <h2 class="text-lg font-bold">Most Popular</h2>
                 </div>
                 <ul class="post-number">
-                  {newstop5 && newstop5?.map((news)=>(<li  key={news.slug.current} class="border-b border-gray-100 hover:bg-gray-50">
-                    <a
-                      class="text-lg font-bold px-6 py-3 flex flex-row items-center"
-                      href={`/news/${news.slug.current ? news.slug.current : ""}`}
-                    >
-                      {news?.heading1 && news.heading1.slice(0, 44)}
-                
-                    </a>
-                  </li>))
-                    
-                  }
-                  
-                  
+                  {newstop5 &&
+                    newstop5?.map((news) => (
+                      <li
+                        key={news.slug.current}
+                        class="border-b border-gray-100 hover:bg-gray-50"
+                      >
+                        <a
+                          class="text-lg font-bold px-6 py-3 flex flex-row items-center"
+                          href={`/news/${
+                            news.slug.current ? news.slug.current : ""
+                          }`}
+                        >
+                          {news?.heading1 && news.heading1.slice(0, 44)}
+                        </a>
+                      </li>
+                    ))}
                 </ul>
               </div>
             </div>
@@ -128,23 +141,27 @@ const BlockNews2 = ({ news, advertisement }) => {
                 <a class="uppercase" href="#">
                   Advertisement
                 </a>
-                <a href="#">
-                  { advertisement.length > 1 ? (
-                    <Image
-                      width={650}
-                      height={500}
-                      className="mx-auto"
-                      src={urlFor(advertisement[1]?.image)}
-                      alt="advertisement area"
-                    />
-                  ) : (
-                    <img
-                      className="mx-auto"
-                      src="src/img/ads/250.jpg"
-                      alt="advertisement area"
-                    />
-                  )}
-                </a>
+                {advertisement[0] && (
+                  <div class="w-full text-center">
+                    <a href="#">
+                      {Array.isArray(advertisement) ? (
+                        <Image
+                          width={650}
+                          height={500}
+                          className="mx-auto"
+                          src={urlFor(advertisement[currentIndex]?.image)}
+                          alt="advertisement area"
+                        />
+                      ) : (
+                        <Image
+                          className="mx-auto"
+                          src="src/img/ads/250.jpg"
+                          alt="advertisement area"
+                        />
+                      )}
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
           </div>

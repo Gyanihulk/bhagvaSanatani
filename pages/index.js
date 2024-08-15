@@ -70,7 +70,7 @@ export default function Home({ category, news10, news ,newsTop5,haridwarNews,Utt
 <SliderNews news={news10}/>
 <BlockNews1 news={UttarakhandNews}/>
 <BlockNews2 news={news} advertisement={advertisement}/>
-<BlockNews3 news={sanatanNews}/>
+<BlockNews3 news={sanatanNews} advertisement={advertisement} />
     </main>
    
     </>

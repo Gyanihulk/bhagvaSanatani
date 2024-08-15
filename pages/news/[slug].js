@@ -47,7 +47,7 @@ const NewsDetails = ({
       autoplay: 1,
     },
   };
-  console.log(newsArticle,news)
+  // console.log(newsArticle,news)
   return (
     <>
       <Head>

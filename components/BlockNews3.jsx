@@ -13,6 +13,16 @@ const BlockNews3 = ({news,advertisement}) => {
       setNews(newsTop5);
     })();
   }, []);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  useEffect(() => {
+    // Set up an interval to change the image every 5 seconds
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % advertisement.length);
+    }, 5000);
+
+    // Clear the interval when the component is unmounted
+    return () => clearInterval(interval);
+  }, [advertisement]);
   return (
     <div className="bg-gray-50 py-6">
     <div className="xl:container mx-auto px-3 sm:px-4 xl:px-2">
@@ -104,20 +114,27 @@ const BlockNews3 = ({news,advertisement}) => {
           <div className="text-sm py-6 sticky">
             <div className="w-full text-center">
               <a className="uppercase" href="#">Advertisement</a>
-              <a href="#">
-              {
-Array.isArray(advertisement) && advertisement.length > 2 ? (
-    <Image
-      width={650}
-      height={500}
-      className="mx-auto"
-      src={urlFor(advertisement[2]?.image)}
-      alt="advertisement area"
-    />
-  ): <img className="mx-auto" src="src/img/ads/250.jpg" alt="advertisement area"/>
-}
-               
-              </a>
+              {advertisement[0] && (
+                  <div class="w-full text-center">
+                    <a href="#">
+                      {Array.isArray(advertisement) ? (
+                        <Image
+                          width={650}
+                          height={500}
+                          className="mx-auto"
+                          src={urlFor(advertisement[currentIndex]?.image)}
+                          alt="advertisement area"
+                        />
+                      ) : (
+                        <Image
+                          className="mx-auto"
+                          src="src/img/ads/250.jpg"
+                          alt="advertisement area"
+                        />
+                      )}
+                    </a>
+                  </div>
+                )}
             </div>
           </div>
         </div>

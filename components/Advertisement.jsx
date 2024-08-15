@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React, { useEffect, useState } from 'react'
 
 export const Advertisement = () => {
@@ -6,7 +7,7 @@ export const Advertisement = () => {
     (async () => {
       const addUery = `*[_type=="advertisement"] `;
       const advertisement = await client.fetch(addUery);
-
+console.log(advertisement,"test")
       setAds(advertisement);
     })();
   }, []);

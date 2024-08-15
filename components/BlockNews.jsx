@@ -4,12 +4,22 @@ import Image from "next/image";
 import Link from "next/link";
 
 const BlockNews = ({ haridwarNews, advertisement }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [newstop5, setNews] = useState();
+  useEffect(() => {
+    // Set up an interval to change the image every 5 seconds
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % advertisement.length);
+    }, 5000);
+
+    // Clear the interval when the component is unmounted
+    return () => clearInterval(interval);
+  }, [advertisement]);
   useEffect(() => {
     (async () => {
       const newsQueryTop5 = `*[_type=="news"] | order(_createdAt desc)[0...5] {...,Categories[]->{name}}`;
       const newsTop5 = await client.fetch(newsQueryTop5);
-      console.log(newsTop5);
+      console.log(advertisement);
       setNews(newsTop5);
     })();
   }, []);
@@ -95,23 +105,29 @@ const BlockNews = ({ haridwarNews, advertisement }) => {
                     <a class="uppercase" href="#">
                       Advertisement
                     </a>
-                    <a href="#">
-                      {Array.isArray(advertisement) ? (
-                        <Image
-                          width={650}
-                          height={500}
-                          className="mx-auto"
-                          src={urlFor(advertisement[0]?.image)}
-                          alt="advertisement area"
-                        />
-                      ) : (
-                        <Image
-                          className="mx-auto"
-                          src="src/img/ads/250.jpg"
-                          alt="advertisement area"
-                        />
-                      )}
-                    </a>
+                    {advertisement[0] && (
+      
+      <div class="w-full text-center">
+        <a href="#">
+          {Array.isArray(advertisement) ? (
+            <Image
+              width={650}
+              height={500}
+              className="mx-auto"
+              src={urlFor(advertisement[currentIndex]?.image)}
+              alt="advertisement area"
+            />
+          ) : (
+            <Image
+              className="mx-auto"
+              src="src/img/ads/250.jpg"
+              alt="advertisement area"
+            />
+          )}
+        </a>
+      </div>
+   
+)}
                   </div>
                 </div>
               </div>
